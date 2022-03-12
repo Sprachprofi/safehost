@@ -5,3 +5,49 @@
 select.form-control, input.form-control {
   max-width: 300px;
 }
+
+/* Indicate status indications */
+.black-dot {
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+    background: black;
+    width: 10px;
+    vertical-align: baseline;
+    height: 10px;}
+
+.red-dot {
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+    background: coral;
+    width: 10px;
+    vertical-align: baseline;
+    height: 10px;}
+
+.yellow-dot {
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+    background: yellow;
+    width: 10px;
+    vertical-align: baseline;
+    height: 10px;}
+
+.green-dot {
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+    background: chartreuse;
+    width: 10px;
+    vertical-align: baseline;
+    height: 10px;}
+
+.dark-green-dot {
+    background-color: darkseagreen;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+    width: 10px;
+    vertical-align: baseline;
+    height: 10px;}

@@ -132,7 +132,7 @@
   <div class="form-group">
     <%= f.label :which_guests, class: "control-label col-lg-3" %>
     <div class="col-lg-9">
-      <% ["men", "women", "couple", "babies", "infants", "youths", "elderly", "BIPOC", "LGBTQ", "dogs", "cats", "other_pets"].each do |opt| %>
+      <% ["xmen", "women", "couple", "babies", "infants", "youths", "elderly", "BIPOC", "LGBTQ", "dogs", "cats", "other_pets"].each do |opt| %>
         <label class="checkbox-inline">
           <%= check_box_tag ("chk_guests_" + opt).to_sym %> <%= t("host.person_type." + opt) %>
         </label>
@@ -144,7 +144,7 @@
   <div class="form-group">
     <%= f.label :which_hosts, class: "control-label col-lg-3" %>
     <div class="col-lg-9">
-      <% ["single_m", "single_w", "couple", "men", "women", "babies", "infants", "youths", "elderly", "BIPOC", "LGBTQ", "dogs", "cats", "other_pets"].each do |opt| %>
+      <% ["single_m", "single_w", "couple", "xmen", "women", "babies", "infants", "youths", "elderly", "BIPOC", "LGBTQ", "dogs", "cats", "other_pets"].each do |opt| %>
         <label class="checkbox-inline">
           <%= check_box_tag ("chk_hosts_" + opt).to_sym %> <%= t("host.person_type." + opt) %>
         </label>

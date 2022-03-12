@@ -76,6 +76,14 @@
     <%=f.error_span(:postal_code) %>
   </div>
   
+  <div class="form-group">
+    <%= f.label :mobile, :class => "control-label col-lg-2" %>
+    <div class="col-lg-10">
+      <%= f.text_field :mobile, :class => "form-control" %>
+    </div>
+    <%=f.error_span(:mobile) %>
+  </div>
+  
   <script>
   $(document).ready(function() {
     $("#user_postal_code").change(function() {

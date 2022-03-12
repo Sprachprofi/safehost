@@ -3,9 +3,9 @@ ActiveAdmin.register Host do
   permit_params :user_id, :address, :postal_code, :city, :country, :optimal_no_guests, :max_sleeps, :max_duration, :sleep_conditions, :which_guests, :which_hosts, :description, :languages, :other_comments, :available, :guest_name, :guest_data, :pickup_data, :guest_end_date
   
   controller do
-    before_action only: :index do
-      @per_page = 3 if UserPrivilege.get_scope_of_privilege(current_user, 'match_hosts_in_city').nil?
-    end
+    #before_action only: :index do
+      #@per_page = 3 if UserPrivilege.get_scope_of_privilege(current_user, 'match_hosts_in_city').nil?
+    #end
 
     def scoped_collection
       scope = UserPrivilege.get_scope_of_privilege(current_user, 'match_hosts_in_city')
@@ -15,6 +15,50 @@ ActiveAdmin.register Host do
         Host.where(city: scope)
       end
     end
+  end
+  
+  filter :optimal_no_guests, label: "Opt. guests"
+  filter :max_duration, label: "Max nights"
+  filter :which_guests, label: "Guest is..."
+  filter :which_hosts, label: "Host is..."
+  filter :languages_contains, as: :select, collection: ["Deutsch", "English", "Russkiy", "Ukrainska", "Français", "Español", "Polski", "Other"]
+  filter :sleep_conditions_contains, as: :select, collection: ["private_room", "private_bathroom", "use_kitchen", "work_desk"]
+  filter :city
+  filter :personal_name
+  filter :family_name
+  filter :user_mobile
+  filter :created_at
+
+  # filter by status
+  scope :available, group: :status, default: true
+  scope :taken, group: :status
+
+  # quick filter by guest type
+  scope :all, group: :hosting
+  scope "women", :women, group: :hosting
+  scope "men", :men, group: :hosting
+  scope "dogs", :dogs, group: :hosting
+  scope "cats", :cats, group: :hosting
+
+  index do
+
+    selectable_column
+    column 'Name', sortable: :family_name do |host|
+      s = raw(availability_state_icon(host))
+      s += host.user.name
+    end
+    column :city
+    column "Opt. guests", :optimal_no_guests
+    column "Max guests", :max_sleeps
+    column "Max nights", :max_duration
+    column :which_guests
+    column :which_hosts
+    column :languages
+    column "Phone" do |host|
+      host.user.mobile
+    end
+    column :created_at
+    actions
   end
   
 end

@@ -131,7 +131,7 @@ ActiveAdmin.setup do |config|
   #
   # You can change the order for the comments and you can change the column
   # to be used for ordering:
-  # config.comments_order = 'created_at ASC'
+  config.comments_order = 'created_at DESC'
   #
   # You can disable the menu item for the comments index page:
   # config.comments_menu = false
@@ -169,6 +169,8 @@ ActiveAdmin.setup do |config|
   # available formats in your application.
   #
   config.localize_format = :long
+
+
 
   # == Setting a Favicon
   #
@@ -215,6 +217,7 @@ ActiveAdmin.setup do |config|
   #
   # To load a javascript file:
   #   config.register_javascript 'my_javascript.js'
+  config.register_stylesheet 'active_admin_mods.css'
 
   # == CSV options
   #
