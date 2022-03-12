@@ -1,0 +1,45 @@
+<%- model_class = Host -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
+  <dd><%= @host.user_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
+  <dd><%= @host.address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:postal_code) %>:</strong></dt>
+  <dd><%= @host.postal_code %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
+  <dd><%= @host.city %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:country) %>:</strong></dt>
+  <dd><%= @host.country %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:optimal_no_guests) %>:</strong></dt>
+  <dd><%= @host.optimal_no_guests %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:max_sleeps) %>:</strong></dt>
+  <dd><%= @host.max_sleeps %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:max_duration) %>:</strong></dt>
+  <dd><%= @host.max_duration %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sleep_conditions) %>:</strong></dt>
+  <dd><%= @host.sleep_conditions %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:which_guests) %>:</strong></dt>
+  <dd><%= @host.which_guests %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:which_hosts) %>:</strong></dt>
+  <dd><%= @host.which_hosts %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @host.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:languages) %>:</strong></dt>
+  <dd><%= @host.languages %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:other_comments) %>:</strong></dt>
+  <dd><%= @host.other_comments %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              hosts_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_host_path(@host), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              host_path(@host),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

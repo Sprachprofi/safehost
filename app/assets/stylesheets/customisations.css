@@ -1,0 +1,7 @@
+.form-group {
+    margin-bottom: 1rem;
+}
+
+select.form-control, input.form-control {
+  max-width: 300px;
+}
