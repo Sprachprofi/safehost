@@ -19,6 +19,9 @@ class HostsController < InheritedResources::Base
       @host.user_id = current_user.id
       @user = current_user
       @host.terms_of_service = true
+    elsif User.where(email: user_params[:email]).exists?
+      @user = User.find_by_email(user_params[:email])
+      @host.user_id = @user.id
     else
       @user = User.new(user_params)
       @user.city = @host.city

@@ -21,7 +21,7 @@
     <div class="form-group">
       <%= uf.label :personal_name, class: "control-label col-lg-3" %>
       <div class="col-lg-9">
-        <%= uf.text_field :personal_name, autofocus: true, class: "form-control" %>
+        <%= uf.text_field :personal_name, autofocus: true, class: "form-control", required: true %>
       </div>
       <%= uf.error_span(:personal_name) %>
     </div>
@@ -29,7 +29,7 @@
     <div class="form-group">
       <%= uf.label :family_name, class: "control-label col-lg-3" %>
       <div class="col-lg-9">
-        <%= uf.text_field :family_name, class: "form-control" %>
+        <%= uf.text_field :family_name, class: "form-control", required: true %>
       </div>
       <%=uf.error_span(:family_name) %>
     </div>
@@ -37,7 +37,7 @@
     <div class="form-group">
       <%= uf.label :email, class: "control-label col-lg-3" %>
       <div class="col-lg-9">
-        <%= uf.email_field :email, autocomplete: "email", class: "form-control" %>
+        <%= uf.email_field :email, autocomplete: "email", class: "form-control", required: true %>
       </div>
       <%= uf.error_span(:email) %>
     </div>
@@ -45,7 +45,7 @@
     <div class="form-group">
       <%= uf.label :mobile, class: "control-label col-lg-3" %>
       <div class="col-lg-9">
-        <%= uf.text_field :mobile, class: "form-control", placeholder: "+49 151 12345678" %>
+        <%= uf.text_field :mobile, class: "form-control", placeholder: "+49 151 12345678", required: true %>
       </div>
       <%=uf.error_span(:mobile) %>
     </div>
@@ -122,7 +122,7 @@
   <div class="form-group">
     <%= f.label :max_duration, "Max stay in days*", class: "control-label col-lg-3" %>
     <div class="col-lg-9">
-      <%= f.text_field :max_duration, class: "form-control" %>
+      <%= f.text_field :max_duration, class: "form-control", required: true %>
     </div>
     <%=f.error_span(:max_duration) %>
   </div>
@@ -131,7 +131,7 @@
     <div class="col-lg-9">
       <% SLEEP_CONDITIONS.each do |opt| %>
         <label class="checkbox-inline">
-          <%= check_box_tag ("chk_sleep_" + opt).to_sym %> <%= t("host.sleep_cond." + opt) %>
+          <%= check_box_tag ("chk_sleep_" + opt).to_sym,  "1",  (@host.sleep_conditions || "").include?(opt) %> <%= t("host.sleep_cond." + opt) %>
         </label>
       <% end %>
     </div>
@@ -142,7 +142,7 @@
     <div class="col-lg-9">
       <% GUEST_TYPES.each do |opt| %>
         <label class="checkbox-inline">
-          <%= check_box_tag ("chk_guests_" + opt).to_sym %> <%= t("host.person_type." + opt) %>
+          <%= check_box_tag ("chk_guests_" + opt).to_sym,  "1",  (@host.which_guests || "").include?(opt) %> <%= t("host.person_type." + opt) %>
         </label>
         <%= raw("<br>") if opt == "BIPOC" %>
       <% end %>
@@ -154,7 +154,7 @@
     <div class="col-lg-9">
       <% HOST_TYPES.each do |opt| %>
         <label class="checkbox-inline">
-          <%= check_box_tag ("chk_hosts_" + opt).to_sym %> <%= t("host.person_type." + opt) %>
+          <%= check_box_tag ("chk_hosts_" + opt).to_sym,  "1",  (@host.which_hosts || "").include?(opt) %> <%= t("host.person_type." + opt) %>
         </label>
         <%= raw("<br>") if opt == "youths" %>
       <% end %>
@@ -166,12 +166,12 @@
     <div class="col-lg-9">
       <% ["Deutsch", "English", "Russkiy", "Ukrainska", "Français", "Español", "Polski", "Other"].each do |opt| %>
         <label class="checkbox-inline">
-          <%= check_box_tag ("chk_languages_" + opt).to_sym %> <%= opt %>
+          <%= check_box_tag ("chk_languages_" + opt).to_sym,  "1",  (@host.languages || "").include?(opt) %> <%= opt %>
         </label>
       <% end %>
       <br />
         <label class="checkbox-inline">
-          <%= check_box_tag ("chk_languages_no_common").to_sym %> <%= t("host.no_common_language") %>
+          <%= check_box_tag ("chk_languages_no_common").to_sym,  "1",  (@host.languages || "").include?("no_common") %> <%= t("host.no_common_language") %>
         </label>
     </div>
     <%=f.error_span(:languages) %>
