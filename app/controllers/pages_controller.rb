@@ -24,7 +24,7 @@ class PagesController < ApplicationController
     if UserMailer.export_data(current_user, User.export_personal_information(current_user.id)).deliver_later
       flash[:notice] = "All data that is associated with your account has been exported and sent to your email address."
     else
-      flash[:alert] = 'There was an error exporting your data; please contact judith.meyer@diem25.org for technical help.'
+      flash[:alert] = 'There was an error exporting your data; please contact tech@safehost.space for technical help.'
     end
     redirect_to :index
   end

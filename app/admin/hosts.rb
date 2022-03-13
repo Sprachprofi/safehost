@@ -53,7 +53,7 @@ ActiveAdmin.register Host, as: 'Available Hosts' do
     column :which_hosts
     column :languages
     column "Phone" do |host|
-      host.user.mobile + " - " + host.user.contact_time
+      host.user.mobile.to_s + " - " + host.user.contact_time.to_s
     end
     column :created_at
     actions
