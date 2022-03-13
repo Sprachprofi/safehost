@@ -8,7 +8,11 @@ Rails.application.routes.draw do
     }
     # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
     
-    resources :hosts, except: [:index]
+    resources :hosts, except: [:index] do
+      collection do
+        get 'finished_signup'
+      end
+    end
     
     resources :pages, only: [:index] do
       collection do 

@@ -1,4 +1,4 @@
-ActiveAdmin.register Host, as: 'Available Hosts' do
+ActiveAdmin.register Host, as: 'Available Host' do
   
   permit_params :user_id, :address, :postal_code, :city, :country, :optimal_no_guests, :max_sleeps, :max_duration, :sleep_conditions, :which_guests, :which_hosts, :description, :languages, :other_comments, :available, :guest_name, :guest_data, :pickup_data, :guest_end_date
   
@@ -39,7 +39,6 @@ ActiveAdmin.register Host, as: 'Available Hosts' do
   scope "cats", :cats, group: :hosting
 
   index do
-
     selectable_column
     column 'Name', sortable: :family_name do |host|
       s = raw(availability_state_icon(host))
@@ -57,6 +56,13 @@ ActiveAdmin.register Host, as: 'Available Hosts' do
     end
     column :created_at
     actions
+  end
+  
+  show do
+    panel "Found a guest?" do
+      render partial: '/hosts/found_guest', :locals => { host: available_host }
+    end
+    default_main_content
   end
   
 end

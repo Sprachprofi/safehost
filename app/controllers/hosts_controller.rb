@@ -1,4 +1,5 @@
 class HostsController < InheritedResources::Base
+  before_action :authenticate_user!, only: [:finished_signup]
   before_action :set_host, only: [:show, :edit, :update, :destroy]
   before_action :require_own_or_admin!, only: [:index, :show, :edit, :update, :destroy]
 
@@ -48,6 +49,18 @@ class HostsController < InheritedResources::Base
     end
   end
   
+  def finished_signup
+  end
+  
+  def update
+    @host.update(host_params)
+    if request.referer.include?("/admin/")
+      redirect_to "/admin/taken_hosts/#{@host.id}" and return
+    else
+      redirect_to @host
+    end
+  end
+  
 
 
   private
@@ -56,6 +69,7 @@ class HostsController < InheritedResources::Base
       prepare_checkbox_params_for_db
       params.require(:host)
         .permit(:address, :postal_code, :city, :country, :optimal_no_guests, :max_sleeps, :max_duration, :sleep_conditions, :which_guests, :which_hosts, :description, :languages, :other_comments, :terms_of_service,
+          :available, :guest_name, :guest_data, :pickup_data, :guest_end_date,
           user_attributes: [:email, :personal_name, :family_name, :mobile, :social_links, :terms_of_service])
     end
     
@@ -95,7 +109,7 @@ class HostsController < InheritedResources::Base
     # don't allow editing/deleting of host data that don't belong to the user
     def require_own_or_admin!
       authenticate_user! if current_user.nil?
-      if (@host.user_id != current_user.id) and (!current_user.has_privilege?('help_single_user'))
+      if (@host.user_id != current_user.id) and (!current_user.has_privilege?('match_hosts_in_city', @host.city))
         flash[:alert] = I18n.t('errors.own_or_admin')
         redirect_to '/'
       end

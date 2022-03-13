@@ -1,4 +1,4 @@
-ActiveAdmin.register Host, as: 'Taken Hosts' do
+ActiveAdmin.register Host, as: 'Taken Host' do
   
   permit_params :user_id, :address, :postal_code, :city, :country, :optimal_no_guests, :max_sleeps, :max_duration, :sleep_conditions, :which_guests, :which_hosts, :description, :languages, :other_comments, :available, :guest_name, :guest_data, :pickup_data, :guest_end_date
   
