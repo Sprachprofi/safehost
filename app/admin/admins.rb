@@ -3,7 +3,7 @@ ActiveAdmin.register User, as: 'Admin' do
     before_action -> { require_privilege('assign_privileges') }
 
     def scoped_collection
-      User.admins
+      User
     end
   end
 
@@ -45,10 +45,24 @@ ActiveAdmin.register User, as: 'Admin' do
     end
     redirect_to collection_path, alert: "The selected users have gained the privilege to #{inputs['privilege']}."
   end
+  
+  batch_action :reset_password do |ids|
+    # inputs is a hash of all the form fields you requested do |ids|
+    batch_action_collection.find(ids).each do |user|
+      user.confirm
+      user.password = 'AllTogetherNow!'
+      user.save
+      #Store.admin_log(current_user, "gave privilege #{inputs['privilege']} to #{user.email}.")
+    end
+    redirect_to collection_path, alert: "The selected users' password has been reset to 'AllTogetherNow!'"
+  end
 
   action_item :dashboard do
     link_to 'Back to dashboard', root_path
   end
+  
+  scope :admins, default: true
+  scope :all
 
   index do
     selectable_column

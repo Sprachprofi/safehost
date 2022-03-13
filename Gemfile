@@ -25,6 +25,9 @@ gem 'turbolinks', '~> 5'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+gem 'sprockets', '~> 4'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+
 gem 'twitter-bootstrap-rails'
 gem 'jquery-rails', '4.4.0'
 gem 'jquery-ui-rails'
@@ -36,7 +39,7 @@ gem 'country_select', '~> 3.1'
 gem 'rails-i18n'
 gem 'http_accept_language'
 
-gem 'twilio'
+gem 'twilio-ruby'
 gem 'aws-sdk-s3'
 
 # Reduces boot times through caching; required in config/boot.rb

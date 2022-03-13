@@ -1,0 +1,17 @@
+$('#status-box').hide();
+<% if current_user.verified_phone? %>
+  $('#verify-pin').hide();
+  $('#status-box').removeClass();
+  $('#status-box').addClass('alert alert-success');
+  $('#status-message').text("<%= t('general.success').html_safe %>");
+  $('#status-box').show();
+  $('#go_on_now').show();
+  $('#link_dashboard').show();
+<% else %>
+  $('#status-box').removeClass();
+  $('#status-box').addClass('alert alert-warning');
+  $('#status-message').text("<%= t('verify.pin_not_right').html_safe %>");
+  $('#status-box').show();
+  $('#link_dashboard').hide();
+<% end %>
+$('#status-box').fadeIn();

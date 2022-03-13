@@ -2,4 +2,13 @@
 <div class="page-header">
   <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></h1>
 </div>
+
+<p>Dear potential host, </p>
+<p>Thank you for your interest in providing accommodation for those fleeing the war in Ukraine. </p>
+<p>First, the form below will save your data in a secure, encrypted database that is hosted in Germany, controlled by a group of private volunteers of https://www.accommodation-for-refugees.com/, and driven by open-source code. </p>
+
+<p>Second, volunteers at LAF will review your form information to determine if your offer matches with refugees in need who arrive on-site. If there are any changes on your side, please update the details in your host profile.</p>
+
+<p>Finally, LAF volunteers will contact you by phone when there is a match. You are then expected to come to the LAF to meet your new guests.</p>
+
 <%= render :partial => 'form' %>

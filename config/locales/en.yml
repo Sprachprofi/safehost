@@ -1,28 +1,35 @@
 en:
   general: 
+    status: "Status"
+    status_nothing: "Status: Haven’t done anything yet"
+    success: "Success!"
   errors:
     own_or_admin: "You can only edit/delete your own data, unless you're an admin."
   buttons: 
     register: "Register"
     submit: "Submit"
+    go_to_dashboard: "Go to the dashboard now."
   host:
     basic_data: "Basic data"
     where: "Where is the guest room / apartment located?"
     details: "Details on the conditions of hosting"
     id_safety: "It is scary especially for women to stay with people they don't know. Thank you for contributing to the safety of our guests!"
+    no_common_language: "Ready to host someone without a common language"
     sleep_cond:
+      common_room: "Common room"
       private_room: "Private room"
       private_bathroom: "Private bathroom"
       use_kitchen: "Can use kitchen"
       work_desk: "Can work at desk"
+      handicapped: "Handicapped accessible"
     person_type:
       xmen: "Men"
       women: "Women"
       couple: "Couple"
-      babies: "Babies"
-      infants: "Infants"
-      youths: "Youths"
-      elderly: ">65 years"
+      babies: "0-3yo"
+      infants: "4-10yo"
+      youths: "11-18yo"
+      elderly: "Elderly"
       BIPOC: "BIPOC"
       LGBTQ: "LGBTQ"
       dogs: "Dog(s)"
@@ -64,7 +71,7 @@ en:
         password: "Password"
         password_confirmation: "Confirm password"
         remember_me: "Remember me"
-        personal_name: "Personal name"
+        personal_name: "First name"
         family_name: "Family name"
         mobile: "Mobile phone"
         country: "Country"
@@ -73,6 +80,7 @@ en:
         current_password: "Current password"
         address: "Street and house number"
         id_or_passport_no: "Number of your passport or ID card"
+        contact_time: "What time of day may we call you?"
       host:
         languages: "Language(s) spoken"
         mobile: "Mobile phone"
@@ -87,5 +95,5 @@ en:
         sleep_conditions: "Sleeping conditions"
         which_guests: "What kind of guests are welcome?"
         which_hosts: "Who is the host / host family?"
-        description: "Describe the accommodation"
+        description: "Briefly describe the accommodation"
         other_comments: "Anything else you want guests to know"

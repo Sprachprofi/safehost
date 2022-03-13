@@ -1,4 +1,4 @@
-ActiveAdmin.register Host, as: 'Available Hosts' do
+ActiveAdmin.register Host, as: 'Taken Hosts' do
   
   permit_params :user_id, :address, :postal_code, :city, :country, :optimal_no_guests, :max_sleeps, :max_duration, :sleep_conditions, :which_guests, :which_hosts, :description, :languages, :other_comments, :available, :guest_name, :guest_data, :pickup_data, :guest_end_date
   
@@ -10,9 +10,9 @@ ActiveAdmin.register Host, as: 'Available Hosts' do
     def scoped_collection
       scope = UserPrivilege.get_scope_of_privilege(current_user, 'match_hosts_in_city')
       if scope == 'any' or scope.nil?
-        Host.available
+        Host.taken
       else # any specific scope
-        Host.available.where(city: scope)
+        Host.taken.where(city: scope)
       end
     end
   end
@@ -21,7 +21,7 @@ ActiveAdmin.register Host, as: 'Available Hosts' do
   filter :max_duration, label: "Max nights"
   filter :which_guests_contains, label: "Guest includes", as: :select, collection: GUEST_TYPES
   filter :which_hosts_contains, label: "Host includes", as: :select, collection: HOST_TYPES
-  filter :languages_contains, as: :select, collection: ["Deutsch", "English", "Russkiy", "Ukrainska", "Français", "Español", "Polski", "Other", "no_common"]
+  filter :languages_contains, as: :select, collection: ["Deutsch", "English", "Russkiy", "Ukrainska", "Français", "Español", "Polski", "Other","no_common"]
   filter :sleep_conditions_contains, as: :select, collection: SLEEP_CONDITIONS
   filter :city
   filter :personal_name
@@ -33,8 +33,6 @@ ActiveAdmin.register Host, as: 'Available Hosts' do
   scope :all, group: :hosting
   scope "women", :women, group: :hosting
   scope "men", :men, group: :hosting
-  scope "couple", :couple, group: :hosting
-  scope "babies", :babies, group: :hosting
   scope "dogs", :dogs, group: :hosting
   scope "cats", :cats, group: :hosting
 

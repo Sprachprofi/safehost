@@ -1,6 +1,6 @@
 class HostsController < InheritedResources::Base
   before_action :set_host, only: [:show, :edit, :update, :destroy]
-  before_action :require_own_or_admin!, only: [:edit, :update, :destroy]
+  before_action :require_own_or_admin!, only: [:index, :show, :edit, :update, :destroy]
 
   def new
     if current_user
@@ -14,8 +14,10 @@ class HostsController < InheritedResources::Base
   
   def create
     @host = Host.new(host_params)
+    @user = nil
     if current_user
       @host.user_id = current_user.id
+      @user = current_user
       @host.terms_of_service = true
     else
       @user = User.new(user_params)
@@ -31,7 +33,12 @@ class HostsController < InheritedResources::Base
     
     if @host.user_id and @host.save 
       flash[:notice] = I18n.t("host.success_register")
-      redirect_to :root
+      sign_in(@user) if not current_user
+      if @user.verified_phone?
+        redirect_to :root and return
+      else 
+        redirect_to new_verification_path and return
+      end
     else 
       flash[:alert] = I18n.t("host.fail_register")
       render 'new'
@@ -50,7 +57,7 @@ class HostsController < InheritedResources::Base
     end
     
     def user_params
-      params.require(:user).permit(:email, :personal_name, :family_name, :mobile, :social_links, :terms_of_service)
+      params.require(:user).permit(:email, :personal_name, :family_name, :mobile, :contact_time, :social_links, :terms_of_service)
     end
     
     def prepare_checkbox_params_for_db
