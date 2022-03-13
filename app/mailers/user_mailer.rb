@@ -1,9 +1,6 @@
 class UserMailer < ApplicationMailer
   default from: 'SafeHost <info@safehost.space>'
   layout 'mailer'
-  helper :hosts
-  helper :links
-  helper :datetime
   helper ApplicationHelper
 
   rescue_from ArgumentError do |exception|
