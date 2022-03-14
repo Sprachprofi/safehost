@@ -3,6 +3,8 @@ en:
     status: "Status"
     status_nothing: "Status: Haven’t done anything yet"
     success: "Success!"
+    data_privacy: "Data Privacy"
+    legal: "Legal"
   errors:
     own_or_admin: "You can only edit/delete your own data, unless you're an admin."
   buttons: 
@@ -97,3 +99,5 @@ en:
         which_hosts: "Who is the host / host family?"
         description: "Briefly describe the accommodation"
         other_comments: "Anything else you want guests to know"
+  emails:
+    welcome: "Welcome to SafeHost!"

@@ -20,6 +20,11 @@ class PagesController < ApplicationController
     render status: 400, formats: :html
   end
   
+####################################
+
+  def data_privacy
+  end
+  
   def export_my_data
     if UserMailer.export_data(current_user, User.export_personal_information(current_user.id)).deliver_later
       flash[:notice] = "All data that is associated with your account has been exported and sent to your email address."
@@ -30,6 +35,9 @@ class PagesController < ApplicationController
   end
 
   def index
+  end
+  
+  def legal
   end
 
 end

@@ -47,7 +47,7 @@ class VerificationsController < ApplicationController
     if current_user.mobile == params[:hidden_phone_number].standardise_phone_number
       current_user.verify_phone_pin(params[:pin])
       if current_user.verified_phone? # Success!!
-        #UserMailer.confirmed_verification(current_user).deliver_later
+        UserMailer.welcome(current_user, I18n.locale).deliver_later
       end
     # notification of success/fail will be handled by Javascript
     else

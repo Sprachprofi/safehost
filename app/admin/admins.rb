@@ -40,7 +40,7 @@ ActiveAdmin.register User, as: 'Admin' do
   } do |ids, inputs|
     # inputs is a hash of all the form fields you requested do |ids|
     batch_action_collection.find(ids).each do |user|
-      UserPrivilege.add_privilege(user, inputs['privilege'])
+      UserPrivilege.assign_privilege(user, inputs['privilege'])
       #Store.admin_log(current_user, "gave privilege #{inputs['privilege']} to #{user.email}.")
     end
     redirect_to collection_path, alert: "The selected users have gained the privilege to #{inputs['privilege']}."

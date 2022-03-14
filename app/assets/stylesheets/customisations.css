@@ -1,3 +1,31 @@
+div.navbar-static-top {
+  background-color: white; 
+  border: none;
+}
+
+ul.navbar-nav {
+  position: relative;
+  top: 50px; 
+  height: 80px; 
+  font-weight: bold;
+}
+
+footer {
+  background-color: #f0c419;
+  padding: 30px;
+  margin-top: 20px;
+}
+
+footer a {
+  font-size: 115%;
+  margin-right: 20px;
+  color: black;
+}
+
+h1 {
+  font-size: 28px;
+}
+
 .form-group {
     margin-bottom: 1rem;
 }
@@ -115,3 +143,4 @@ fill: #29cc44;
   color: #29cc44;
   right: 0;
 }
+

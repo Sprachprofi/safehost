@@ -36,6 +36,12 @@ class UserMailer < ApplicationMailer
     @body = body
     mail(:from => from, :to => email, :subject => subject)
   end
+  
+  def welcome(user, locale = :en)
+    @user = user
+    I18n.locale = locale
+    mail(to: user.email_with_name, subject: I18n.t("emails.welcome"))
+  end
 
   private
 

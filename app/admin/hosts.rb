@@ -21,7 +21,7 @@ ActiveAdmin.register Host, as: 'Available Host' do
   filter :max_duration, label: "Max nights"
   filter :which_guests_contains, label: "Guest includes", as: :select, collection: GUEST_TYPES
   filter :which_hosts_contains, label: "Host includes", as: :select, collection: HOST_TYPES
-  filter :languages_contains, as: :select, collection: ["Deutsch", "English", "Russkiy", "Ukrainska", "Français", "Español", "Polski", "Other", "no_common"]
+  filter :languages_contains, as: :select, collection: ["Deutsch", "English", "русский", "украї́нська", "Français", "Español", "Polski", "Misc Slavic", "Other", "no_common"]
   filter :sleep_conditions_contains, as: :select, collection: SLEEP_CONDITIONS
   filter :city
   filter :personal_name

@@ -33,7 +33,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="https://safehost.space"><%= image_tag "logo.png", style: "max-height: 100%; margin-right: 8px; float: left;", class: "d-inline-block align-top" %> Safehost</a>
+        <a class="navbar-brand" href="https://safehost.space" style="height: 80px;"><%= image_tag "logo.png", style: "height: 80px; margin-right: 8px; margin-left: -24px; float: left;", class: "d-inline-block align-top" %></a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
             <li><%= link_to "Host someone", "/hosts/new"  %></li>
@@ -41,6 +41,7 @@
             <% if current_user %>
               <li><%= link_to "Log out", "/users/sign_out" %></li>
             <% end %>
+            <li style="float: right"><%= I18n.locale == :en ? link_to("Deutsch", { locale: :de} ) : link_to("English", { locale: :en }) %></li>
           </ul>
         </div>
       </div>
@@ -55,9 +56,7 @@
         
       </div><!--/row-->
 
-      <footer style="margin-top: 20px">
-        <p>&copy; Judith Meyer</p>
-      </footer>
+      <%= render partial: "footer" %>
 
     </div> <!-- /container -->
 

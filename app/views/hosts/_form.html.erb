@@ -95,7 +95,7 @@
     <%=f.error_span(:city) %>
   </div>
   <div class="form-group">
-    <%= f.label :address, "Street and house number", class: "control-label col-lg-3" %>
+    <%= f.label :address, class: "control-label col-lg-3" %>
     <div class="col-lg-9">
       <%= f.text_field :address, class: "form-control" %>
     </div>
@@ -113,14 +113,14 @@
     <%=f.error_span(:optimal_no_guests) %>
   </div>
   <div class="form-group">
-    <%= f.label :max_sleeps, "Max number of guests", class: "control-label col-lg-3" %>
+    <%= f.label :max_sleeps, class: "control-label col-lg-3" %>
     <div class="col-lg-9">
       <%= f.select :max_sleeps, (1..6).to_a + ["more"], {}, class: "form-control" %>
     </div>
     <%=f.error_span(:max_sleeps) %>
   </div>
   <div class="form-group">
-    <%= f.label :max_duration, "Max stay in days*", class: "control-label col-lg-3" %>
+    <%= f.label :max_duration, class: "control-label col-lg-3" %>
     <div class="col-lg-9">
       <%= f.text_field :max_duration, class: "form-control", required: true %>
     </div>
@@ -164,7 +164,7 @@
   <div class="form-group">
     <%= f.label :languages, class: "control-label col-lg-3" %>
     <div class="col-lg-9">
-      <% ["Deutsch", "English", "Russkiy", "Ukrainska", "Français", "Español", "Polski", "Other"].each do |opt| %>
+      <% ["Deutsch", "English", "русский", "украї́нська", "Français", "Español", "Polski", "Misc Slavic", "Other"].each do |opt| %>
         <label class="checkbox-inline">
           <%= check_box_tag ("chk_languages_" + opt).to_sym,  "1",  (@host.languages || "").include?(opt) %> <%= opt %>
         </label>
