@@ -24,7 +24,7 @@
     <div class="col-lg-10">
       <%= f.text_field :personal_name, :class => "form-control" %>
     </div>
-    <%=f.error_span(:personal_name) %>
+    
   </div>
   
   <div class="form-group">
@@ -32,7 +32,7 @@
     <div class="col-lg-10">
       <%= f.text_field :family_name, :class => "form-control" %>
     </div>
-    <%=f.error_span(:family_name) %>
+    
   </div>
   
   <div class="form-group">
@@ -40,7 +40,7 @@
     <div class="col-lg-10">
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
     </div>
-    <%= f.error_span(:email) %>
+    
   </div>
   
   <div class="form-group">
@@ -48,7 +48,7 @@
     <div class="col-lg-10">
       <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
     </div>
-    <%= f.error_span(:password) %>
+    
   </div>
   
   <div class="form-group">
@@ -56,7 +56,7 @@
     <div class="col-lg-10">
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
     </div>
-    <%= f.error_span(:password_confirmation) %>
+    
   </div>
   
   <% resource.country ||= "DE" %>
@@ -65,7 +65,7 @@
     <div class="col-lg-10">
       <%= f.country_select :country, { include_blank: true }, { class: "form-control" } %>     
     </div>
-    <%= f.error_span(:country) %>
+    
   </div>
   
   <div class="form-group">
@@ -73,7 +73,7 @@
     <div class="col-lg-10">
       <%= f.text_field :postal_code, :class => "form-control" %>
     </div>
-    <%=f.error_span(:postal_code) %>
+    
   </div>
   
   <div class="form-group">
@@ -81,7 +81,7 @@
     <div class="col-lg-10">
       <%= f.text_field :mobile, :class => "form-control", placeholder: "+49 151 12345678" %>
     </div>
-    <%=f.error_span(:mobile) %>
+    
   </div>
   
   <script>
@@ -115,7 +115,7 @@
     <div class="col-lg-10">
       <%= f.text_field :city, :class => "form-control" %>
     </div>
-    <%=f.error_span(:city) %>
+    
   </div>
   
   <div class="form-group">
