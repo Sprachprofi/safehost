@@ -1,0 +1,44 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <div class="logo-bar">
+        <a class="main-logo-container d-flex align-items-end" href="https://safehost.space">
+          <%= image_tag "logo.svg", class: "main-logo" %>
+          <span class="logo-text fs-2">Safehost</span>
+        </a>
+      </div>
+      <button class="navbar-toggler menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+        aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse flex-grow-0" id="navbarContent">
+        <div class="d-flex justify-content-lg-end flex-wrap nav-list">
+          <ul class="navbar-nav ml-sm-0 ">
+            <li class="nav-item "><%= link_to t("general.about_us"), about_pages_path, class: "nav-link hover-underline-animation" %></li>
+            <li class="nav-item "><a href="mailto:tech@safehost.space" class="nav-link  hover-underline-animation">Contact us</a></li>
+            <% if current_user %>
+              <li class="nav-item"><%= link_to "Admin", "/admin/available_hosts", class: "nav-link hover-underline-animation" %></li>
+              <li class="nav-item"><%= link_to "Log out", "/users/sign_out", class: "nav-link hover-underline-animation" %></li>
+            <% else %>
+              <li class="nav-item "><%= link_to t("general.log_in"), new_user_session_path, class: "nav-link hover-underline-animation" %></li>
+              <li class="nav-item "><%= link_to t("general.sign_up"), new_host_path, class: "btn btn-secondary sign-up-item-style" %></li>
+            <% end %>  
+            </li>
+            <li class="nav-item language-box ml-xl-2">
+              <div class="dropdown">
+                <a class="nav-link  dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  <%= t("general.language") %> <%= image_tag "Polygon.svg", class: "polygon" %>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <li><%= link_to("Deutsch", { locale: :de}, class: "dropdown-item") %></li>
+                  <li><%= link_to("English", { locale: :en}, class: "dropdown-item") %></li>
+                  <li><%= link_to("Русский", { locale: :ru}, class: "dropdown-item") %></li>
+                  <li><%= link_to("Українська", { locale: :uk}, class: "dropdown-item") %></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>

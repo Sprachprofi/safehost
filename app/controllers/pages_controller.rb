@@ -22,6 +22,9 @@ class PagesController < ApplicationController
   
 ####################################
 
+  def about
+  end
+
   def data_privacy
   end
   

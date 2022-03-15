@@ -1,8 +1,37 @@
-<footer class="row">
-  <div class="col-md-6">
-    <p>Safehost is a tool to provide a secure and verified option for hosts to register and for volunteers to find matches.</p>
+<div class="container-fluid footer-info">
+    <div class="container d-flex justify-content-center ">
+      <footer class="row footer-info mt-5">
+        <div class="first-footer-col col-12 col-md-6 col-xl-4">
+          <p class="safehost-name fs-3 text-nowrap text-break">Safehost</p>
+          <p class="safehost-description word-wrap font-weight-light">
+            is a tool to provide a secure and verified option for hosts to register and for volunteers to find matches.
+          </p>
+        </div>
+        <div class="d-flex justify-content-center middle-col col-12 col-md-6 col-xl-4 ">
+          <ul class="list-group useful-info text-nowrap text-break">
+            <li><%= link_to t("general.data_privacy"), data_privacy_pages_path, class: "list-group-item footer-links" %></li>
+            <li><a class="list-group-item footer-links" href="#">FAQ</a></li>
+            <li><a class="list-group-item footer-links" href="mailto:tech@safehost.space">Contact us</a></li>
+            <li><a class="list-group-item footer-links" href="https://berlin-ua-volunteers.de/" target="_blank">Useful materials</a>
+            </li>
+            <li><%= link_to t("general.about_us"), about_pages_path, class: "list-group-item footer-links" %></li>
+            <li><%= link_to t("general.legal"), legal_pages_path, class: "list-group-item footer-links" %></li>
+          </ul>
+        </div>
+        <div class="col-12 col-md-12 col-xl-4 mb-4">
+          <div class="row text-center justify-content-center mt-5 mt-xl-0">
+            <div class="col-12 col-sm-6 col-xl-12">
+              <p class="tg-public-link fs-4">Stay tuned
+            </div>
+            <a href="https://t.me/+kwT7YEg1LFUxNmFi" target="_blank" class="footer-links">
+              <%= image_tag "telegram.svg" %>
+              <p class="mt-1 safehost-description">Telegram</p>
+            </a>
+            <a href="mailto:tech@safehost.space" target="_blank" class="footer-links mt-1 safehost-description">
+              tech@safehost.space
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
   </div>
-  <div class="col-md-6">
-    <p><%= link_to t("general.data_privacy"), data_privacy_pages_path %> <a href="#">FAQ</a> <a href="mailto:tech@safehost.space">Contact us</a> <a href="#">About us</a> <%= link_to t("general.legal"), legal_pages_path %></p>
-  </div>
-</footer>

@@ -28,7 +28,6 @@ gem 'turbolinks', '~> 5'
 gem 'sprockets', '~> 4'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
-gem 'twitter-bootstrap-rails'
 gem 'jquery-rails', '4.4.0'
 gem 'jquery-ui-rails'
 gem 'devise'

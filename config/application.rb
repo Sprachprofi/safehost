@@ -11,6 +11,16 @@ module Safehost
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
     config.action_controller.include_all_helpers = true
+    
+    config.i18n.default_locale = :en
+    I18n.available_locales = [:en, :de, :ru, :uk, :fr, :it, :es, :pt]
+    config.time_zone = 'Europe/Berlin'
+
+    config.generators.assets = false
+    config.generators.helper = false
+    config.generators.test_framework = false
+
+    config.action_mailer.preview_path = "#{Rails.root}/test/mailers/previews"
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

@@ -18,53 +18,53 @@
   <% if current_user.nil? %>
     <h3><%= t("host.basic_data") %></h3>
     <%= fields_for :user, @host.user do |uf| %>
-    <div class="form-group">
+    <div class="mb-3 row">
       <%= uf.label :personal_name, class: "control-label col-lg-3" %>
       <div class="col-lg-9">
         <%= uf.text_field :personal_name, autofocus: true, class: "form-control", required: true %>
       </div>
-      <%= uf.error_span(:personal_name) %>
+      
     </div>
     
-    <div class="form-group">
+    <div class="mb-3 row">
       <%= uf.label :family_name, class: "control-label col-lg-3" %>
       <div class="col-lg-9">
         <%= uf.text_field :family_name, class: "form-control", required: true %>
       </div>
-      <%=uf.error_span(:family_name) %>
+      
     </div>
     
-    <div class="form-group">
+    <div class="mb-3 row">
       <%= uf.label :email, class: "control-label col-lg-3" %>
       <div class="col-lg-9">
         <%= uf.email_field :email, autocomplete: "email", class: "form-control", required: true %>
       </div>
-      <%= uf.error_span(:email) %>
+      
     </div>
     
-    <div class="form-group">
+    <div class="mb-3 row">
       <%= uf.label :mobile, class: "control-label col-lg-3" %>
       <div class="col-lg-9">
         <%= uf.text_field :mobile, class: "form-control", placeholder: "+49 151 12345678", required: true %>
       </div>
-      <%=uf.error_span(:mobile) %>
+      
     </div>
     
-    <div class="form-group">
+    <div class="mb-3 row">
       <%= uf.label :contact_time, class: "control-label col-lg-3" %>
       <div class="col-lg-9">
         <%= uf.text_field :contact_time, class: "form-control" %>
       </div>
-      <%=uf.error_span(:contact_time) %>
+      
     </div>
     
-    <div class="form-group">
+    <div class="mb-3 row">
       <%= uf.label :id_or_passport_no, class: "control-label col-lg-3" %>
       <div class="col-lg-9">
         <%= uf.text_field :id_or_passport_no, class: "form-control" %>
         <span id="helpBlock" class="help-block"><%= t("host.id_safety") %></span>
       </div>
-      <%=uf.error_span(:id_or_passport_no) %>
+      
     </div>
     <% end %>
     <hr />
@@ -72,133 +72,133 @@
   
   <h3><%= t("host.where") %></h3>
   <% @host.country ||= "DE" %>
-  <div class="form-group">
+  <div class="mb-3 row">
     <%= f.label :country, class: "control-label col-lg-3" %>
     <div class="col-lg-9">
       <%= f.country_select :country, { include_blank: true }, { class: "form-control" } %>     
     </div>
-    <%= f.error_span(:country) %>
+    
   </div>
-  <div class="form-group">
+  <div class="mb-3 row">
     <%= f.label :postal_code, class: "control-label col-lg-3" %>
     <div class="col-lg-9">
       <%= f.text_field :postal_code, class: "form-control" %>
     </div>
-    <%=f.error_span(:postal_code) %>
+    
   </div>
   <% @host.city ||= "Berlin" %>
-  <div class="form-group">
+  <div class="mb-3 row">
     <%= f.label :city, class: "control-label col-lg-3" %>
     <div class="col-lg-9">
       <%= f.text_field :city, class: "form-control" %>
     </div>
-    <%=f.error_span(:city) %>
+    
   </div>
-  <div class="form-group">
+  <div class="mb-3 row">
     <%= f.label :address, class: "control-label col-lg-3" %>
     <div class="col-lg-9">
       <%= f.text_field :address, class: "form-control" %>
     </div>
-    <%=f.error_span(:address) %>
+    
   </div>
   
   <hr />
   
   <h3><%= t("host.details") %></h3>
-  <div class="form-group">
+  <div class="mb-3 row">
     <%= f.label :optimal_no_guests, class: "control-label col-lg-3" %>
     <div class="col-lg-9">
       <%= f.select :optimal_no_guests, (1..5).to_a + ["more"], {}, class: "form-control" %>
     </div>
-    <%=f.error_span(:optimal_no_guests) %>
+    
   </div>
-  <div class="form-group">
+  <div class="mb-3 row">
     <%= f.label :max_sleeps, class: "control-label col-lg-3" %>
     <div class="col-lg-9">
       <%= f.select :max_sleeps, (1..6).to_a + ["more"], {}, class: "form-control" %>
     </div>
-    <%=f.error_span(:max_sleeps) %>
+    
   </div>
-  <div class="form-group">
+  <div class="mb-3 row">
     <%= f.label :max_duration, class: "control-label col-lg-3" %>
     <div class="col-lg-9">
       <%= f.text_field :max_duration, class: "form-control", required: true %>
     </div>
-    <%=f.error_span(:max_duration) %>
+    
   </div>
-  <div class="form-group">
+  <div class="mb-3 row">
     <%= f.label :sleep_conditions, class: "control-label col-lg-3" %>
     <div class="col-lg-9">
       <% SLEEP_CONDITIONS.each do |opt| %>
-        <label class="checkbox-inline">
+        <label class="form-check-inline">
           <%= check_box_tag ("chk_sleep_" + opt).to_sym,  "1",  (@host.sleep_conditions || "").include?(opt) %> <%= t("host.sleep_cond." + opt) %>
         </label>
       <% end %>
     </div>
-    <%=f.error_span(:sleep_conditions) %>
+    
   </div>
-  <div class="form-group">
+  <div class="mb-3 row">
     <%= f.label :which_guests, class: "control-label col-lg-3" %>
     <div class="col-lg-9">
       <% GUEST_TYPES.each do |opt| %>
-        <label class="checkbox-inline">
+        <label class="form-check-inline">
           <%= check_box_tag ("chk_guests_" + opt).to_sym,  "1",  (@host.which_guests || "").include?(opt) %> <%= t("host.person_type." + opt) %>
         </label>
         <%= raw("<br>") if opt == "BIPOC" %>
       <% end %>
     </div>
-    <%=f.error_span(:which_guests) %>
+    
   </div>
-  <div class="form-group">
+  <div class="mb-3 row">
     <%= f.label :which_hosts, class: "control-label col-lg-3" %>
     <div class="col-lg-9">
       <% HOST_TYPES.each do |opt| %>
-        <label class="checkbox-inline">
+        <label class="form-check-inline">
           <%= check_box_tag ("chk_hosts_" + opt).to_sym,  "1",  (@host.which_hosts || "").include?(opt) %> <%= t("host.person_type." + opt) %>
         </label>
         <%= raw("<br>") if opt == "youths" %>
       <% end %>
     </div>
-    <%=f.error_span(:which_hosts) %>
+    
   </div>
-  <div class="form-group">
+  <div class="mb-3 row">
     <%= f.label :languages, class: "control-label col-lg-3" %>
     <div class="col-lg-9">
       <% ["Deutsch", "English", "русский", "украї́нська", "Français", "Español", "Polski", "Misc Slavic", "Other"].each do |opt| %>
-        <label class="checkbox-inline">
+        <label class="form-check-inline">
           <%= check_box_tag ("chk_languages_" + opt).to_sym,  "1",  (@host.languages || "").include?(opt) %> <%= opt %>
         </label>
       <% end %>
       <br />
-        <label class="checkbox-inline">
+        <label class="form-check-inline">
           <%= check_box_tag ("chk_languages_no_common").to_sym,  "1",  (@host.languages || "").include?("no_common") %> <%= t("host.no_common_language") %>
         </label>
     </div>
-    <%=f.error_span(:languages) %>
+    
   </div>
-  <div class="form-group">
+  <div class="mb-3 row">
     <%= f.label :description, class: "control-label col-lg-3" %>
     <div class="col-lg-9">
       <%= f.text_area :description, class: "form-control" %>
     </div>
-    <%=f.error_span(:description) %>
+    
   </div>
-  <div class="form-group">
+  <div class="mb-3 row">
     <%= f.label :other_comments, class: "control-label col-lg-3" %>
     <div class="col-lg-9">
       <%= f.text_area :other_comments, class: "form-control" %>
     </div>
-    <%=f.error_span(:other_comments) %>
+    
   </div>
   
-  <div class="form-group">
+  <div class="mb-3 row">
     <div class=" col-xs-9 col-md-9">
       <%= f.check_box :terms_of_service %> <span>I agree that the above data may be stored for the purpose of matching me with guests. I can revoke this anytime by emailing tech@safehost.space</span>
     </div>
   </div>
   
 
-  <div class="form-group">
+  <div class="mb-3 row">
     <div class="col-lg-offset-3 col-lg-8">
       <%= f.submit t("buttons.submit"), class: "btn btn-primary" %>
       

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     
     resources :pages, only: [:index] do
       collection do 
+        get 'about'
         get 'data_privacy'
         post 'export_my_data'
         get 'legal'

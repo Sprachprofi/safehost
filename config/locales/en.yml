@@ -3,11 +3,18 @@ en:
     status: "Status"
     status_nothing: "Status: Haven’t done anything yet"
     success: "Success!"
+    about_us: "About"
+    log_in: "Log in"
+    sign_up: "Sign up"
     data_privacy: "Data Privacy"
     legal: "Legal"
+    more_info: "More info"
+    language: "Language"
   errors:
     own_or_admin: "You can only edit/delete your own data, unless you're an admin."
   buttons: 
+    host: "Host"
+    find: "Find"
     register: "Register"
     submit: "Submit"
     go_to_dashboard: "Go to the dashboard now."
