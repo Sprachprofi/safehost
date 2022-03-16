@@ -4,10 +4,10 @@
 
 <ol>
   <%= f.hidden_field :available, value: false %>
-  <li class="string input optional"><%= f.label :guest_name, "Name of main guest", class: "control-label col-lg-3" %><%= f.text_field :guest_name, class: "form-control" %></li>
-  <li class="string input optional"><%= f.label :guest_data, "Any data on the guest", class: "control-label col-lg-3" %><%= f.text_field :guest_data, class: "form-control" %></li>
-  <li class="string input optional"><%= f.label :pickup_data, "When/where is pickup?", class: "control-label col-lg-3" %><%= f.text_field :pickup_data, class: "form-control" %></li>
-  <li class="string input optional"><%= f.label :guest_end_date, "Until when are they staying?", class: "control-label col-lg-3" %><%= f.date_select :guest_end_date, class: "" %></li>
+  <li class="string input optional"><%= f.label :guest_name, class: "control-label col-lg-3" %><%= f.text_field :guest_name, class: "form-control" %></li>
+  <li class="string input optional"><%= f.label :guest_data, class: "control-label col-lg-3" %><%= f.text_field :guest_data, class: "form-control" %></li>
+  <li class="string input optional"><%= f.label :pickup_data, class: "control-label col-lg-3" %><%= f.text_field :pickup_data, class: "form-control" %></li>
+  <li class="string input optional"><%= f.label :guest_end_date, class: "control-label col-lg-3" %><%= f.date_select :guest_end_date, class: "" %></li>
 </ol>
 </fieldset>
 

@@ -71,6 +71,8 @@ de:
     languages_include: "Sprachen u.a."
     sleep_includes: "Schlafzimmer enthält"
     found_guest: "Vermittelt?"
+    contact_data: "Kontaktdaten"
+    hosting_data: "Daten zur Gastfamilie"
   activerecord:
     models:
       user: "Benutzer"
@@ -108,3 +110,7 @@ de:
         description: "Beschreibe kurz die Unterkunft"
         other_comments: "Möchtest du den Gäst:innen noch etwas anderes mitteilen?"
         created_at: "Angemeldet am"
+        guest_name: "Name des Hauptgastes"
+        guest_data: "Sonstige Daten zum Gast"
+        pickup_data: "Wann und wo ist Übergabe?"
+        guest_end_date: "Bis wann bleiben sie?"

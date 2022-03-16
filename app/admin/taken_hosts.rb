@@ -1,4 +1,5 @@
 ActiveAdmin.register Host, as: 'Taken Host' do
+  includes :user
   
   permit_params :user_id, :address, :postal_code, :city, :country, :optimal_no_guests, :max_sleeps, :max_duration, :sleep_conditions, :which_guests, :which_hosts, :description, :languages, :other_comments, :available, :guest_name, :guest_data, :pickup_data, :guest_end_date
   
@@ -59,6 +60,16 @@ ActiveAdmin.register Host, as: 'Taken Host' do
     end
     column :created_at
     actions
+  end
+  
+  show  do
+    panel I18n.t("admin.contact_data") do
+      para taken_host.user.name
+      para taken_host.user.email
+      para taken_host.user.mobile 
+      para "Host is: #{taken_host.which_hosts}"
+    end
+    default_main_content
   end
   
 end

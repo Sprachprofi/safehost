@@ -14,4 +14,19 @@ class Host < ApplicationRecord
   validates :terms_of_service, acceptance: true
   
   accepts_nested_attributes_for :user
+  
+  def country_name(multilingual = true)
+    if self.country
+      country_data = ISO3166::Country[self.country]
+      if country_data and multilingual
+        country_data.translations[I18n.locale.to_s] || country_data.name
+      elsif country_data
+        country_data.name
+      else
+        self.country
+      end
+    else
+      ''
+    end
+  end
 end

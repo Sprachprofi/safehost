@@ -80,6 +80,8 @@ en:
     languages_include: "Languages include"
     sleep_includes: "Sleep conditions include"
     found_guest: "Found a guest?"
+    contact_data: "Contact data"
+    hosting_data: "Hosting data"
   activerecord:
     models:
       user: "User"
@@ -117,5 +119,9 @@ en:
         description: "Briefly describe the accommodation"
         other_comments: "Anything else you want guests to know"
         created_at: "Registered on"
+        guest_name: "Name of main guest"
+        guest_data: "Any data on the guest"
+        pickup_data: "When/where is pickup?"
+        guest_end_date: "Until when are they staying?"
   emails:
     welcome: "Welcome to SafeHost!"

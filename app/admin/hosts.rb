@@ -1,4 +1,5 @@
 ActiveAdmin.register Host, as: 'Available Host' do
+  includes :user
   
   permit_params :user_id, :address, :postal_code, :city, :country, :optimal_no_guests, :max_sleeps, :max_duration, :sleep_conditions, :which_guests, :which_hosts, :description, :languages, :other_comments, :available, :guest_name, :guest_data, :pickup_data, :guest_end_date
   
@@ -64,7 +65,27 @@ ActiveAdmin.register Host, as: 'Available Host' do
     panel I18n.t("admin.found_guest") do
       render partial: '/hosts/found_guest', :locals => { host: available_host }
     end
-    default_main_content
+    panel I18n.t("admin.contact_data") do
+      para available_host.user.name
+      para available_host.user.email
+      para available_host.user.mobile 
+      para "Host is: #{available_host.which_hosts}"
+    end
+    attributes_table title: I18n.t("admin.hosting_data") do 
+      row :available
+      row :address do |host|
+        [host.address.to_s, host.postal_code.to_s, host.city.to_s, host.country_name].join(", ")
+      end
+      row :optimal_no_guests
+      row :max_sleeps
+      row :max_duration
+      row :sleep_conditions
+      row :description
+      row :which_guests
+      row :languages 
+      row :other_comments
+    end
+    active_admin_comments
   end
   
 end
