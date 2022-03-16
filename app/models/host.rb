@@ -14,6 +14,7 @@ class Host < ApplicationRecord
   validates :terms_of_service, acceptance: true
   
   accepts_nested_attributes_for :user
+  self.implicit_order_column = "created_at DESC"
   
   def country_name(multilingual = true)
     if self.country

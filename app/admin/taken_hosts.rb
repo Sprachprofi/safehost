@@ -62,10 +62,10 @@ ActiveAdmin.register Host, as: 'Taken Host' do
     actions
   end
   
-  show  do
+  show title: proc{|host| host.user.name }  do
     panel I18n.t("admin.contact_data") do
       para taken_host.user.name
-      para taken_host.user.email
+      para link_to("mailto:#{taken_host.user.email}", taken_host.user.email)
       para taken_host.user.mobile 
       para "Host is: #{taken_host.which_hosts}"
     end

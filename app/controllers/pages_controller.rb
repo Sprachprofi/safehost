@@ -38,6 +38,7 @@ class PagesController < ApplicationController
   end
 
   def index
+    @listing = Host.where(user_id: current_user.id).order("created_at DESC").first  if current_user
   end
   
   def legal

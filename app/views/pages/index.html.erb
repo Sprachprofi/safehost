@@ -5,6 +5,8 @@
 </script>
 
   <div class="container">
+    <% if @listing %><div class="alert alert-info">You are currently listed as a host. Review or delete your listing <%= link_to "here", edit_host_path(@listing) %>.</div><% end %>
+    
     <div class="main-page">
       <div class="d-flex justify-content-center">
         <h1 class="header-style text-center">

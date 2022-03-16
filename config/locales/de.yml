@@ -3,18 +3,28 @@ de:
     status: "Status"
     status_nothing: "Status: Noch nichts getan"
     success: "Fertig!"
+    about_us: "Über uns"
+    log_in: "Einloggen"
+    sign_up: "Registrieren"
+    data_privacy: "Datenschutz"
+    legal: "Impressum"
+    more_info: "Weitere Infos"
+    language: "Sprache"
   errors:
     own_or_admin: "Du kannst nur deine eigenen Daten ändern/löschen, außer du bist Admin."
   buttons:
+    host: "Aufnehmen"
+    find: "Suchen"
     register: "Registrieren"
     submit: "Abschicken"
     go_to_dashboard: "Gehe jetzt zur Übersicht."
   host:
-    basic_data: "Kontaktdaten\nBasisdaten"
+    basic_data: "Kontaktdaten"
     where: "Wo befindet sich das Zimmer / die Wohnung?"
-    details: "Details zur Unterkunftssituation\nDetails zu Unterkunft"
-    id_safety: "Es kann beängstigend sein, bei Menschen zu wohnen, die man nicht kennt. Dies gilt besonders für Frauen. Vielen Dank, dass Du zur Sicherheit unserer Gäste:innen beiträgst!"
-    no_common_language: "Ich bin bereit Gäste, willkommen zu heißen ohne gemeinsame Sprache"
+    details: "Details zu Unterkunft"
+    id_safety: "Es kann beängstigend sein, bei Menschen zu wohnen, die man nicht kennt. Dies gilt besonders für Frauen. Vielen Dank, dass Du zur Sicherheit unserer Gäst:innen beiträgst!"
+    no_common_language: "Ich bin bereit Gäste willkommen zu heißen ohne gemeinsame Sprache"
+    privacy_agree: "Ich willige ein, dass SafeHost meine Daten zu den in der __Datenschutzerklärung__ genannten Bedingungen verarbeiten und speichern darf, um mich mit Gäst:innen zu verbinden. Diese Einwilligung kann ich jederzeit durch Email an tech@safehost.space widerrufen."
     sleep_cond:
       common_room: "Gemeinsam genutzter Raum"
       private_room: "Privates Zimmer"
@@ -39,6 +49,9 @@ de:
       single_w: "Eine Frau"
     success_register: "Du hast dich erfolgreich registriert. Danke! Wir werden telefonisch Kontakt aufnehmen, sobald wir eine(n) passende(n) Gast:Gästin gefunden haben. "
     fail_register: "Deine Daten konnten nicht gespeichert werden. Wurde ein Pflichtfeld nicht ausgefüllt?"
+    edit: "Anzeige bearbeiten"
+    new: "Neue Anzeige"
+    delete: "Anzeige löschen"
   verify:
     headline: "Bitte bestätige Deine Handynummer"
     pin_not_right: "Es tut uns leid, dies war nicht der richtige Code. Versuche es bitte erneut."
@@ -114,3 +127,5 @@ de:
         guest_data: "Sonstige Daten zum Gast"
         pickup_data: "Wann und wo ist Übergabe?"
         guest_end_date: "Bis wann bleiben sie?"
+  emails:
+    welcome: "Willkommen bei SafeHost!"

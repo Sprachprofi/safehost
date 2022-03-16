@@ -16,6 +16,7 @@ class HostsController < InheritedResources::Base
   def create
     @host = Host.new(host_params)
     @user = nil
+    dont_sign_in = false
     if current_user
       @host.user_id = current_user.id
       @user = current_user
@@ -23,6 +24,7 @@ class HostsController < InheritedResources::Base
     elsif User.where(email: user_params[:email]).exists?
       @user = User.find_by_email(user_params[:email])
       @host.user_id = @user.id
+      dont_sign_in = true  # protect against hijack
     else
       @user = User.new(user_params)
       @user.city = @host.city
@@ -37,8 +39,8 @@ class HostsController < InheritedResources::Base
     
     if @host.user_id and @host.save 
       flash[:notice] = I18n.t("host.success_register")
-      sign_in(@user) if not current_user
-      if @user.verified_phone?
+      sign_in(@user) if current_user.nil? and !dont_sign_in
+      if @user.verified_phone? or dont_sign_in
         redirect_to :root and return
       else 
         redirect_to new_verification_path and return
@@ -49,15 +51,24 @@ class HostsController < InheritedResources::Base
     end
   end
   
+  def destroy
+    @host.destroy
+    redirect_to :root
+  end
+  
+  def edit
+  end
+  
   def finished_signup
   end
   
   def update
     @host.update(host_params)
+    @host.user.update(user_params)
     if request.referer.include?("/admin/")
       redirect_to "/admin/taken_hosts/#{@host.id}" and return
     else
-      redirect_to @host
+      redirect_to :root
     end
   end
   

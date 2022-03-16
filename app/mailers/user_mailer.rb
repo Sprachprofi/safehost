@@ -1,7 +1,7 @@
 class UserMailer < ApplicationMailer
   default from: 'SafeHost <info@safehost.space>'
   layout 'mailer'
-  helper ApplicationHelper
+  helper :application
 
   rescue_from ArgumentError do |exception|
     # besides the exception variable, you have here the message method that has all message attributes, so you can save that message.to(it is always an array) are invalid emails
@@ -39,6 +39,13 @@ class UserMailer < ApplicationMailer
   
   def welcome(user, locale = :en)
     @user = user
+    @pw = @user.assign_random_password!
+    @user.save
+    if (host = Host.where(user_id: user.id).order("created_at DESC").first)
+      @my_listing = host.id
+    else 
+      @my_listing = nil
+    end
     I18n.locale = locale
     mail(to: user.email_with_name, subject: I18n.t("emails.welcome"))
   end

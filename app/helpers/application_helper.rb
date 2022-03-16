@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def email(address, options = {})
+    link_to address, "mailto:#{address}", options
+  end
+
   def pretty_privileges(user, joiner = ', ')
     arr = []
     user.privileges.each do |priv, scope|
@@ -35,6 +39,16 @@ module ApplicationHelper
     else
       # raise "string_with_link: No place for __link__ given in #{str}" if Rails.env.test?
       str
+    end
+  end
+
+  def url(address)
+    if address
+      if address.include?('http') # outside link
+        raw(link_to address, address, target: '_blank')
+      else
+        raw(link_to address, address)
+      end
     end
   end
   

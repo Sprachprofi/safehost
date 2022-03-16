@@ -15,7 +15,7 @@
     </div>
   <% end %>
 
-  <% if current_user.nil? %>
+
     <h3><%= t("host.basic_data") %></h3>
     <%= fields_for :user, @host.user do |uf| %>
     <div class="mb-3 row">
@@ -68,7 +68,7 @@
     </div>
     <% end %>
     <hr />
-  <% end %>
+
   
   <h3><%= t("host.where") %></h3>
   <% @host.country ||= "DE" %>
@@ -193,10 +193,9 @@
   
   <div class="mb-3 row">
     <div class=" col-xs-9 col-md-9">
-      <%= f.check_box :terms_of_service %> <span>I agree that the above data may be stored for the purpose of matching me with guests. I can revoke this anytime by emailing tech@safehost.space</span>
+      <%= f.check_box :terms_of_service %> <span><%= string_with_link(t("host.privacy_agree"), data_privacy_pages_path) %></span>
     </div>
   </div>
-  
 
   <div class="mb-3 row">
     <div class="col-lg-offset-3 col-lg-8">

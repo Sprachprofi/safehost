@@ -24,6 +24,7 @@ en:
     details: "Details on the conditions of hosting"
     id_safety: "It is scary especially for women to stay with people they don't know. Thank you for contributing to the safety of our guests!"
     no_common_language: "Ready to host someone without a common language"
+    privacy_agree: "I agree that SafeHost may process and store my data for the purpose of matching me with guests, in line with the __data processing and privacy statement__. I can revoke this permission anytime by emailing tech@safehost.space"
     sleep_cond:
       common_room: "Common room"
       private_room: "Private room"
@@ -48,6 +49,9 @@ en:
       single_w: "Single woman"
     success_register: "Success! Thank you for signing up. We will be in touch via phone as soon as we have found a suitable guest."
     fail_register: "Your data could not be saved. Did you miss a required field?"
+    edit: "Edit listing"
+    new: "New listing"
+    delete: "Delete listing"
   verify:
     headline: "Verify your phone number"
     pin_not_right: "Sorry, that wasn't the right code. Try again."

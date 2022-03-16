@@ -61,13 +61,13 @@ ActiveAdmin.register Host, as: 'Available Host' do
     actions
   end
   
-  show  do
+  show title: proc{|host| host.user.name }  do
     panel I18n.t("admin.found_guest") do
       render partial: '/hosts/found_guest', :locals => { host: available_host }
     end
     panel I18n.t("admin.contact_data") do
       para available_host.user.name
-      para available_host.user.email
+      para link_to("mailto:#{available_host.user.email}", available_host.user.email)
       para available_host.user.mobile 
       para "Host is: #{available_host.which_hosts}"
     end
