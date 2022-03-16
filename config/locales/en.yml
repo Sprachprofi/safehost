@@ -69,7 +69,17 @@ en:
     include_prefix: "Did you include your national prefix?"
     click_cancel: "Click Cancel to change your number."
     pin_not_sent: "The confirmation code could not be sent out. Probably your phone number is bad. Please enter a correct phone number including the national code."
-      
+  admin:
+    available_hosts: "Available hosts"
+    taken_hosts: "Taken hosts"
+    guest_includes: "Welcome guests"
+    host_includes: "Host includes"
+    opt_guests: "Opt. guests"
+    max_guests: "Max. guests"
+    max_nights: "Nights"
+    languages_include: "Languages include"
+    sleep_includes: "Sleep conditions include"
+    found_guest: "Found a guest?"
   activerecord:
     models:
       user: "User"
@@ -106,5 +116,6 @@ en:
         which_hosts: "Who is the host / host family?"
         description: "Briefly describe the accommodation"
         other_comments: "Anything else you want guests to know"
+        created_at: "Registered on"
   emails:
     welcome: "Welcome to SafeHost!"

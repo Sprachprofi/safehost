@@ -9,5 +9,19 @@ module HostsHelper
       "<i class='red-dot' title='Not currently available'></i>"
     end
   end
+  
+  def t_array(arr, context)
+    result = []
+    context = context + '.' unless context.ends_with?('.') or context.ends_with?('_')
+    arr.each do |item|
+      result << t(context + item.downcase.gsub(/\W/, '_'))
+    end
+    result
+  end
+  
+  # example usage: <%= f.select :role, t_for_select(ROLES_IN_GROUP, "groups.roles"), { selected: 'zmember' }, { class: 'form-control' } %>
+  def t_for_select(arr, context)
+    t_array(arr, context).zip(arr)
+  end
 
 end
