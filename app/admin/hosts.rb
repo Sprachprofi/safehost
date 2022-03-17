@@ -52,8 +52,12 @@ ActiveAdmin.register Host, as: 'Available Host' do
     column I18n.t("admin.opt_guests"), :optimal_no_guests
     column I18n.t("admin.max_guests"), :max_sleeps
     column I18n.t("admin.max_nights"), :max_duration
-    column :which_guests
-    column :which_hosts
+    column :which_guests do |host|
+      t_string(host.which_guests, "host.person_type")
+    end
+    column :which_hosts do |host|
+      t_string(host.which_hosts, "host.person_type")
+    end
     column :languages
     column :mobile do |host|
       host.user.mobile.to_s + " - " + host.user.contact_time.to_s
@@ -71,7 +75,7 @@ ActiveAdmin.register Host, as: 'Available Host' do
       para link_to("mailto:#{available_host.user.email}", available_host.user.email)
       para available_host.user.mobile 
       render partial: '/users/social_links', locals: { user: available_host.user }
-      para "Host is: #{available_host.which_hosts}"
+      para I18n.t("admin.host_is") + t_string(available_host.which_hosts, "host.person_type")
     end
     attributes_table title: I18n.t("admin.hosting_data") do 
       row :available
@@ -81,9 +85,13 @@ ActiveAdmin.register Host, as: 'Available Host' do
       row :optimal_no_guests
       row :max_sleeps
       row :max_duration
-      row :sleep_conditions
+      row :sleep_conditions do |host|
+        t_string(host.sleep_conditions, "host.sleep_cond")
+      end
       row :description
-      row :which_guests
+      row :which_guests do |host|
+        t_string(host.which_guests, "host.person_type")
+      end
       row :languages 
       row :other_comments
     end

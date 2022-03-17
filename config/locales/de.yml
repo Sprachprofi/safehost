@@ -41,6 +41,7 @@ de:
       youths: "Kind 11-18 J."
       elderly: "Ältere Menschen"
       BIPOC: "People of Color, alle Ethnien, Indigene und jegliche Menschen, die (sich) zu einer Minderheit zählen"
+      bipoc: "BIPOC"
       LGBTQ: "LGBTQ+"
       dogs: "Hund(e)"
       cats: "Katze(n)"
@@ -86,6 +87,7 @@ de:
     found_guest: "Vermittelt?"
     contact_data: "Kontaktdaten"
     hosting_data: "Daten zur Gastfamilie"
+    host_is: "Gastfamilie ist: "
   activerecord:
     models:
       user: "Benutzer"

@@ -19,6 +19,10 @@ module HostsHelper
     result
   end
   
+  def t_string(str, context, divider = " ")
+    t_array(str.to_s.split(divider), context).join(divider)
+  end
+  
   # example usage: <%= f.select :role, t_for_select(ROLES_IN_GROUP, "groups.roles"), { selected: 'zmember' }, { class: 'form-control' } %>
   def t_for_select(arr, context)
     t_array(arr, context).zip(arr)

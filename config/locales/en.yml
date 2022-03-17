@@ -41,6 +41,7 @@ en:
       youths: "11-18yo"
       elderly: "Elderly"
       BIPOC: "BIPOC"
+      bipoc: "BIPOC"
       LGBTQ: "LGBTQ"
       dogs: "Dog(s)"
       cats: "Cat(s)"
@@ -86,6 +87,7 @@ en:
     found_guest: "Found a guest?"
     contact_data: "Contact data"
     hosting_data: "Hosting data"
+    host_is: "Host is: "
   activerecord:
     models:
       user: "User"

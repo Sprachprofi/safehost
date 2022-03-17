@@ -53,8 +53,12 @@ ActiveAdmin.register Host, as: 'Taken Host' do
     column I18n.t("admin.opt_guests"), :optimal_no_guests
     column I18n.t("admin.max_guests"), :max_sleeps
     column I18n.t("admin.max_nights"), :max_duration
-    column :which_guests
-    column :which_hosts
+    column :which_guests do |host|
+      t_string(host.which_guests, "host.person_type")
+    end
+    column :which_hosts do |host|
+      t_string(host.which_hosts, "host.person_type")
+    end
     column :languages
     column :mobile do |host|
       host.user.mobile.to_s + " - " + host.user.contact_time.to_s
@@ -68,7 +72,8 @@ ActiveAdmin.register Host, as: 'Taken Host' do
       para taken_host.user.name
       para link_to("mailto:#{taken_host.user.email}", taken_host.user.email)
       para taken_host.user.mobile 
-      para "Host is: #{taken_host.which_hosts}"
+      render partial: '/users/social_links', locals: { user: taken_host.user }
+      para I18n.t("admin.host_is") + t_string(taken_host.which_hosts, "host.person_type")
     end
     default_main_content
   end
