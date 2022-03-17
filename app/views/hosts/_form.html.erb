@@ -64,8 +64,15 @@
         <%= uf.text_field :id_or_passport_no, class: "form-control" %>
         <span id="helpBlock" class="help-block"><%= t("host.id_safety") %></span>
       </div>
-      
     </div>
+    
+    <div class="mb-3 row">
+      <%= uf.label :social_links, class: "control-label col-lg-12" %>
+      <div class="col-lg-12">
+        <%= uf.text_area :social_links, value: @host.user.social_links.join("\r\n"), class: "form-control" %>
+      </div>
+    </div>
+    
     <% end %>
     <hr />
 

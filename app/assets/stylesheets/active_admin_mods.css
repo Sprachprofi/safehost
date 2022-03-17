@@ -43,3 +43,18 @@
     width: 10px;
     vertical-align: baseline;
     height: 10px;}
+    
+.sm-buttons {
+    margin-bottom: 20px;
+    margin-top: 10px;
+    display: block;
+    text-align: left;
+    clear: both;
+}
+
+.sm-buttons img {
+    max-width: 40px;
+    float: left;
+    margin-right: 10px;
+    vertical-align: middle;
+}

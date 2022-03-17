@@ -5,6 +5,7 @@ ActiveAdmin.register Host, as: 'Available Host' do
   
   controller do
     helper HostsHelper
+    helper ApplicationHelper
     #before_action only: :index do
       #@per_page = 3 if UserPrivilege.get_scope_of_privilege(current_user, 'match_hosts_in_city').nil?
     #end
@@ -63,12 +64,13 @@ ActiveAdmin.register Host, as: 'Available Host' do
   
   show title: proc{|host| host.user.name }  do
     panel I18n.t("admin.found_guest") do
-      render partial: '/hosts/found_guest', :locals => { host: available_host }
+      render partial: '/hosts/found_guest', locals: { host: available_host }
     end
     panel I18n.t("admin.contact_data") do
       para available_host.user.name
       para link_to("mailto:#{available_host.user.email}", available_host.user.email)
       para available_host.user.mobile 
+      render partial: '/users/social_links', locals: { user: available_host.user }
       para "Host is: #{available_host.which_hosts}"
     end
     attributes_table title: I18n.t("admin.hosting_data") do 

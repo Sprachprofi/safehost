@@ -106,6 +106,7 @@ en:
         address: "Street and house number"
         id_or_passport_no: "Number of your passport or ID card"
         contact_time: "What time of day may we call you?"
+        social_links: "Below you can provide links to your Telegram/Facebook/VKontakte/Twitter/other user profiles"
       host:
         languages: "Language(s) spoken"
         mobile: "Mobile phone"

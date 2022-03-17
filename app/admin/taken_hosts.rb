@@ -5,6 +5,7 @@ ActiveAdmin.register Host, as: 'Taken Host' do
   
   controller do
     helper HostsHelper
+    helper ApplicationHelper
     #before_action only: :index do
       #@per_page = 3 if UserPrivilege.get_scope_of_privilege(current_user, 'match_hosts_in_city').nil?
     #end

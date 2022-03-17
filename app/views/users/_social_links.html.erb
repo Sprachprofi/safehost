@@ -1,0 +1,8 @@
+<% if user.social_links %>
+  <div class="sm-buttons" style="clear: both">
+    <% user.social_links.each do |url| %>
+      <%= social_link(url) %>
+    <% end %>
+  </div>
+  <br style="clear: both"/><br />
+<% end %>

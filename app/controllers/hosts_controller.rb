@@ -81,11 +81,12 @@ class HostsController < InheritedResources::Base
       params.require(:host)
         .permit(:address, :postal_code, :city, :country, :optimal_no_guests, :max_sleeps, :max_duration, :sleep_conditions, :which_guests, :which_hosts, :description, :languages, :other_comments, :terms_of_service,
           :available, :guest_name, :guest_data, :pickup_data, :guest_end_date,
-          user_attributes: [:email, :personal_name, :family_name, :mobile, :social_links, :terms_of_service])
+          user_attributes: [:email, :personal_name, :family_name, :mobile, :social_links, :id_or_passport_no, :terms_of_service])
     end
     
     def user_params
-      params.require(:user).permit(:email, :personal_name, :family_name, :mobile, :contact_time, :social_links, :terms_of_service)
+      params[:user][:social_links] = params[:user][:social_links].split(/\r?\n/) if params[:user] and params[:user][:social_links]
+      params.require(:user).permit(:email, :personal_name, :family_name, :mobile, :contact_time, {social_links: []}, :id_or_passport_no, :terms_of_service)
     end
     
     def prepare_checkbox_params_for_db

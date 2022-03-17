@@ -16,6 +16,35 @@ module ApplicationHelper
     arr.sort.join(joiner)
   end
   
+  def social_link(url)
+    (url = "mailto:" + url) if url.include?("@") and !url.starts_with?("http") and !url.starts_with?("mailto:")
+    (url = "https://" + url) if url.starts_with?("www.")
+    img = if url.include?("facebook.com")
+      "some/facebook-blue.png"
+    elsif url.include?("twitter.com")
+      "some/twitter-blue.png"
+    elsif url.include?("@") and !url.starts_with?("http")
+      "some/email-green.png"
+    elsif url.include?("vk.com")
+      "some/vk.png"
+    elsif url.include?("telegram.org") or url.include?("/t.me")
+      "some/messenger-generic.png"
+    elsif url.include?("reddit.com")
+      "some/reddit.png"
+    elsif url.include?("linkedin.com")
+      "some/linkedin.png"
+    elsif url.include?("instagram.com")
+      "some/instagram.png"
+    elsif url.include?("youtube.com") or url.include?("youtu.be")
+      "some/youtube.png"
+    elsif url.include?("github.com")
+      "some/github.png"
+    else
+      "some/website.png"
+    end
+    raw("<a href=\"#{url}\" title=\"#{img[5..-5]}\">" + image_tag(img, height: 40, width: 40) + "</a>")
+  end
+  
   # Converts
   # "string with __link__ in the middle." to
   # "string with #{link_to('link', link_url, link_options)} in the middle."
