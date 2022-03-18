@@ -57,17 +57,17 @@ ActiveAdmin.register Host, as: 'Taken Host' do
     column I18n.t("admin.opt_guests"), :optimal_no_guests
     column I18n.t("admin.max_guests"), :max_sleeps
     column I18n.t("admin.max_nights"), :max_duration
-    column :which_guests do |host|
+    column I18n.t("admin.welcome_guests") do |host|
       t_string(host.which_guests, "host.person_type")
     end
-    column :which_hosts do |host|
+    column I18n.t("activerecord.models.host") do |host|
       t_string(host.which_hosts, "host.person_type")
     end
     column :languages
     column :mobile do |host|
       host.user.mobile.to_s + " - " + host.user.contact_time.to_s
     end
-    column I18n.t("activerecord.models.comment.other") do |host|
+    column I18n.t("admin.comments") do |host|
       s = host.description.to_s.truncate(200, separator: ' ')
       (s += "<br>" + host.other_comments.to_s.truncate(200, separator: ' ')) if !host.other_comments.blank?
       raw(s)

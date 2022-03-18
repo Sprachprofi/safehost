@@ -90,6 +90,8 @@ de:
     contact_data: "Kontaktdaten"
     hosting_data: "Daten zur Gastfamilie"
     host_is: "Gastfamilie ist: "
+    welcome_guests: "Willkommene Gäste"
+    comments: "Beschreibung und Kommentare"
   activerecord:
     models:
       user: "Benutzer"
