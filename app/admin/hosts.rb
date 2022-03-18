@@ -1,6 +1,8 @@
 ActiveAdmin.register Host, as: 'Available Host' do
   includes :user
   
+  actions :index, :show, :destroy
+  
   permit_params :user_id, :address, :postal_code, :city, :country, :optimal_no_guests, :max_sleeps, :max_duration, :sleep_conditions, :which_guests, :which_hosts, :description, :languages, :other_comments, :available, :guest_name, :guest_data, :pickup_data, :guest_end_date
   
   controller do
@@ -15,7 +17,7 @@ ActiveAdmin.register Host, as: 'Available Host' do
       if scope == 'any' or scope.nil?
         Host.available
       else # any specific scope
-        Host.available.where(city: scope)
+        Host.available.where("city ILIKE '%#{scope}%'")
       end
     end
   end
@@ -31,6 +33,8 @@ ActiveAdmin.register Host, as: 'Available Host' do
   filter :family_name
   filter :user_mobile
   filter :created_at
+  
+  config.batch_actions = false
 
   # quick filter by guest type
   scope :all, group: :hosting
@@ -62,8 +66,16 @@ ActiveAdmin.register Host, as: 'Available Host' do
     column :mobile do |host|
       host.user.mobile.to_s + " - " + host.user.contact_time.to_s
     end
+    column I18n.t("activerecord.models.comment.other") do |host|
+      s = host.description.to_s.truncate(200, separator: ' ')
+      (s += "<br>" + host.other_comments.to_s.truncate(200, separator: ' ')) if !host.other_comments.blank?
+      raw(s)
+    end
     column :created_at
-    actions
+    actions defaults: false do |host|
+      span item t("active_admin.view"), admin_available_host_path(host)
+      span item t("active_admin.edit"), edit_host_path(host)
+    end
   end
   
   show title: proc{|host| host.user.name }  do
@@ -97,5 +109,7 @@ ActiveAdmin.register Host, as: 'Available Host' do
     end
     active_admin_comments
   end
+  
+  form partial: 'hosts/form'
   
 end

@@ -37,10 +37,11 @@ class ApplicationController < ActionController::Base
   def switch_locale(&action)
     params[:locale] = nil if not I18n.available_locales.include?(params[:locale].try(:to_sym))
     locale = params[:locale]
+    session[:locale]  = locale if params[:locale]
     if Rails.env.test?
       locale ||= :en
     else
-      locale ||= (get_locale_from_browser || I18n.default_locale)
+      locale ||= (session[:locale] || get_locale_from_browser || I18n.default_locale)
     end
     I18n.with_locale(locale, &action)
   end

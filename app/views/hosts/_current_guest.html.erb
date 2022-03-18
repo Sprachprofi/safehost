@@ -1,0 +1,15 @@
+<p><%= host.guest_name %> (<%= host.guest_data %>)</p>
+<p><%= host.pickup_data %></p>
+<p><%= host.guest_end_date %></p>
+
+<%= form_for host, :html => { class: "formtastic host" } do |f| %>
+  <%= f.hidden_field :available, value: true %>
+
+  <div class="form-group">
+    <div class="col-lg-offset-3 col-lg-8">
+      <%= f.submit t("buttons.free_again"), class: "btn btn-primary" %>
+      
+    </div>
+  </div>
+
+<% end %>

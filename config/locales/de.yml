@@ -18,6 +18,7 @@ de:
     register: "Registrieren"
     submit: "Abschicken"
     go_to_dashboard: "Gehe jetzt zur Übersicht."
+    free_again: "Ist wieder frei!"
   host:
     basic_data: "Kontaktdaten"
     where: "Wo befindet sich das Zimmer / die Wohnung?"
@@ -85,6 +86,7 @@ de:
     languages_include: "Sprachen u.a."
     sleep_includes: "Schlafzimmer enthält"
     found_guest: "Vermittelt?"
+    current_guest: "Aktuelle Gäste"
     contact_data: "Kontaktdaten"
     hosting_data: "Daten zur Gastfamilie"
     host_is: "Gastfamilie ist: "

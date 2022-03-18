@@ -64,9 +64,13 @@ class HostsController < InheritedResources::Base
   
   def update
     @host.update(host_params)
-    @host.user.update(user_params)
+    @host.user.update(user_params) if params[:user]
     if request.referer.include?("/admin/")
-      redirect_to "/admin/taken_hosts/#{@host.id}" and return
+      if @host.available 
+        redirect_to "/admin/available_hosts/#{@host.id}" and return
+      else 
+        redirect_to "/admin/taken_hosts/#{@host.id}" and return
+      end
     else
       redirect_to :root
     end
@@ -78,6 +82,13 @@ class HostsController < InheritedResources::Base
 
     def host_params
       prepare_checkbox_params_for_db
+      if !@host.available and params[:host] and params[:host][:available] == "true"
+        # reset if a taken host is set to available
+        params[:host][:guest_name] = nil
+        params[:host][:guest_data] = nil
+        params[:host][:pickup_data] = nil
+        params[:host][:guest_end_date] = nil
+      end
       params.require(:host)
         .permit(:address, :postal_code, :city, :country, :optimal_no_guests, :max_sleeps, :max_duration, :sleep_conditions, :which_guests, :which_hosts, :description, :languages, :other_comments, :terms_of_service,
           :available, :guest_name, :guest_data, :pickup_data, :guest_end_date,
@@ -121,7 +132,10 @@ class HostsController < InheritedResources::Base
     # don't allow editing/deleting of host data that don't belong to the user
     def require_own_or_admin!
       authenticate_user! if current_user.nil?
-      if (@host.user_id != current_user.id) and (!current_user.has_privilege?('match_hosts_in_city', @host.city))
+      scope = UserPrivilege.get_scope_of_privilege(current_user, 'match_hosts_in_city')
+      if (@host.user_id == current_user.id) or (current_user.has_privilege?('match_hosts_in_city', 'any') or (current_user.has_privilege?('match_hosts_in_city') and @host.city.include?(scope)))
+        # all good
+      else
         flash[:alert] = I18n.t('errors.own_or_admin')
         redirect_to '/'
       end

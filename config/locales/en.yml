@@ -18,6 +18,7 @@ en:
     register: "Register"
     submit: "Submit"
     go_to_dashboard: "Go to the dashboard now."
+    free_again: "Free again!"
   host:
     basic_data: "Basic data"
     where: "Where is the guest room / apartment located?"
@@ -85,6 +86,7 @@ en:
     languages_include: "Languages include"
     sleep_includes: "Sleep conditions include"
     found_guest: "Found a guest?"
+    current_guest: "Current guest"
     contact_data: "Contact data"
     hosting_data: "Hosting data"
     host_is: "Host is: "

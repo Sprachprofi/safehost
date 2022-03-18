@@ -12,8 +12,9 @@ module Safehost
     config.load_defaults 6.0
     config.action_controller.include_all_helpers = true
     
-    config.i18n.default_locale = :en
+    config.i18n.default_locale = :de
     I18n.available_locales = [:en, :de, :ru, :uk, :fr, :it, :es, :pt]
+    config.i18n.fallbacks = [:en, :de]
     config.time_zone = 'Europe/Berlin'
 
     config.generators.assets = false
