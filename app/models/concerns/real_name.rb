@@ -5,7 +5,7 @@ module RealName
     validates :personal_name, format: { with: /\A[^*\/!\@;#$%0123456789]+\z/,
                                       message: 'only allows letters' }
     validates :personal_name, format: { without: /(www|http)/i }
-    validates :family_name, format: { with: /\A[^*\/!\@;#$%0123456789]+\z/,
+    validates :family_name, format: { with: /\A[^*!\@;#$%0123456789]+\z/,
                                     message: 'only allows letters' }
     validates :family_name, format: { without: /(www|http)/i }
     
