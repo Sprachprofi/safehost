@@ -1,19 +1,15 @@
 <p>Dear <%= @user.personal_name %>,</p>
 
-<p>Thank you so much for signing up as a host!</p>
-
-<p>Together, we can help the people fleeing from the war in Ukraine find a safer space. Please remember that they may have experienced trauma through war scenes, their escape route here, and the loss of people through the war. If you feel like your guest may need support on this side, please have a look here: [LINK]</p>
+<p>Thank you so much for signing up as a host! Together, we can help the people fleeing from the war in Ukraine find a safer space. </p>
 
 <p>If you ever need to modify or disable your offer, you can do so by going to <%= url(@my_listing.nil? ? "https://safehost.space" : "https://safehost.space/hosts/#{@my_listing}/edit") %> and logging in with password <b><%= @pw %></b>. Please write down this password.</p>
 
-<p>When you will start hosting guests, you can always turn to the following resources to learn what the next steps for them will be: </p>
+<p>As soon as our team has found suitable guests for you, we will contact you via phone. At that point you can still refuse to host someone, but of course we hope that things will work out. Then we'll agree on the next step - normally this means picking up your new guests at the LAF. Here are some more useful resources for you:</p>
 <ul>
 <li><a href="https://www.berlin.de/ukraine/">official page of the LAF</a></li>
 <li><a href="https://www.berlin.de/ukraine/faq/">the FAQ</a> for topics like registration, status, social aid, etc.</li>
 <li><a href="https://t.me/uaprivatehousingsupport">the mutual support group for hosts</a></li>
 </ul>
-
-<p>Please also have a look at [LINK] in order find out more about how you can help, what kind of support you can give to refugees generally.</p>
 
 <p>Thank you again!</p>
 
