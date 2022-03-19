@@ -60,6 +60,11 @@ class HostsController < InheritedResources::Base
   end
   
   def finished_signup
+    if current_user and (host = Host.where(user_id: current_user.id).order("created_at DESC").first)
+      @my_listing = host.id
+    else 
+      @my_listing = nil
+    end
   end
   
   def update
