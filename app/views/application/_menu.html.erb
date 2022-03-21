@@ -14,8 +14,8 @@
         <div class="d-flex justify-content-lg-end flex-wrap nav-list">
           <ul class="navbar-nav ml-sm-0 ">
             <li class="nav-item "><%= link_to t("general.about_us"), about_pages_path, class: "nav-link hover-underline-animation" %></li>
-            <li class="nav-item "><%= link_to t("general.about_us"), faq_pages_path, class: "nav-link hover-underline-animation" %></li>
-            <li class="nav-item "><%= link_to t("general.about_us"), next_steps_pages_path, class: "nav-link hover-underline-animation" %></li>
+            <li class="nav-item "><%= link_to t("general.faq"), faq_pages_path, class: "nav-link hover-underline-animation" %></li>
+            <li class="nav-item "><%= link_to t("general.next_steps"), next_steps_pages_path, class: "nav-link hover-underline-animation" %></li>
             <% if current_user %>
               <li class="nav-item"><%= link_to "Admin", "/admin/available_hosts", class: "nav-link hover-underline-animation" %></li>
               <li class="nav-item"><%= link_to "Log out", "/users/sign_out", class: "nav-link hover-underline-animation" %></li>

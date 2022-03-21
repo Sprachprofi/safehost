@@ -10,6 +10,8 @@ de:
     legal: "Impressum"
     more_info: "Weitere Infos"
     language: "Sprache"
+    faq: "Antworten"
+    next_steps: "Nächste Schritte"
   errors:
     own_or_admin: "Du kannst nur deine eigenen Daten ändern/löschen, außer du bist Admin."
   buttons:

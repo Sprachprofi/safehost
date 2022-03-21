@@ -10,6 +10,8 @@ en:
     legal: "Legal notice"
     more_info: "More info"
     language: "Language"
+    faq: "FAQ"
+    next_steps: "Next steps"
   errors:
     own_or_admin: "You can only edit/delete your own data, unless you're an admin."
   buttons:

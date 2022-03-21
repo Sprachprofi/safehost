@@ -1,8 +1,0 @@
-<footer class="row">
-  <div class="col-md-6">
-    <p>Safehost is a tool to provide a secure and verified option for hosts to register and for volunteers to find matches.</p>
-  </div>
-  <div class="col-md-6">
-    <p><%= link_to t("general.data_privacy"), data_privacy_pages_path %> <a href="#">FAQ</a> <a href="mailto:tech@safehost.space">Contact us</a> <a href="#">About us</a> <%= link_to t("general.legal"), legal_pages_path %></p>
-  </div>
-</footer>
