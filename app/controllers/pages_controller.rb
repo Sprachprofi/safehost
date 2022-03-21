@@ -10,7 +10,7 @@ class PagesController < ApplicationController
       render 'error_404', status: 404, formats: :html
     end
   end
-    
+
   def error_400
     if request.fullpath and (request.fullpath.include?("ensaluto") or request.fullpath.include?("sign_in"))
       logger.warn "Error: Tried logging in as #{params[:user][:email]} at #{request.fullpath} (#{request.domain})"
@@ -19,15 +19,21 @@ class PagesController < ApplicationController
     end
     render status: 400, formats: :html
   end
-  
+
 ####################################
 
   def about
   end
 
+  def faq
+  end
+
+  def next_steps
+  end
+
   def data_privacy
   end
-  
+
   def export_my_data
     if UserMailer.export_data(current_user, User.export_personal_information(current_user.id)).deliver_later
       flash[:notice] = "All data that is associated with your account has been exported and sent to your email address."
@@ -40,7 +46,7 @@ class PagesController < ApplicationController
   def index
     @listing = Host.where(user_id: current_user.id).order("created_at DESC").first  if current_user
   end
-  
+
   def legal
   end
 

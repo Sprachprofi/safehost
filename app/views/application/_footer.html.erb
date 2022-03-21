@@ -9,13 +9,12 @@
         </div>
         <div class="d-flex justify-content-center middle-col col-12 col-md-6 col-xl-4 ">
           <ul class="list-group useful-info text-nowrap text-break">
-            <li><%= link_to t("general.data_privacy"), data_privacy_pages_path, class: "list-group-item footer-links" %></li>
-            <li><a class="list-group-item footer-links" href="#">FAQ</a></li>
-            <li><a class="list-group-item footer-links" href="mailto:tech@safehost.space">Contact us</a></li>
-            <li><a class="list-group-item footer-links" href="https://berlin-ua-volunteers.de/" target="_blank">Useful materials</a>
-            </li>
             <li><%= link_to t("general.about_us"), about_pages_path, class: "list-group-item footer-links" %></li>
+            <li><%= link_to t("general.faq"), faq_pages_path, class: "list-group-item footer-links" %></li>
+            <li><%= link_to t("general.next_steps"), next_steps_pages_path, class: "list-group-item footer-links" %></li>
             <li><%= link_to t("general.legal"), legal_pages_path, class: "list-group-item footer-links" %></li>
+            <li><%= link_to t("general.data_privacy"), data_privacy_pages_path, class: "list-group-item footer-links" %></li>
+            <li><a class="list-group-item footer-links" href="mailto:tech@safehost.space">Contact us</a></li>
           </ul>
         </div>
         <div class="col-12 col-md-12 col-xl-4 mb-4">

@@ -1,18 +1,18 @@
 en:
-  general: 
+  general:
     status: "Status"
     status_nothing: "Status: Haven’t done anything yet"
     success: "Success!"
     about_us: "About"
     log_in: "Log in"
-    sign_up: "Sign up"
+    sign_up: "Offer housing"
     data_privacy: "Data Privacy"
-    legal: "Legal"
+    legal: "Legal notice"
     more_info: "More info"
     language: "Language"
   errors:
     own_or_admin: "You can only edit/delete your own data, unless you're an admin."
-  buttons: 
+  buttons:
     host: "Host"
     find: "Find"
     register: "Register"
