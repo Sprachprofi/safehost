@@ -89,7 +89,7 @@ class HostsController < InheritedResources::Base
       prepare_checkbox_params_for_db
       params[:host][:optimal_no_guests] = 99 if params[:host] and params[:host][:optimal_no_guests] == "more"
       params[:host][:max_sleeps] = 99 if params[:host] and params[:host][:max_sleeps] == "more"
-      if !@host.available and params[:host] and params[:host][:available] == "true"
+      if params[:host] and params[:host][:available] == "true"
         # reset if a taken host is set to available
         params[:host][:guest_name] = nil
         params[:host][:guest_data] = nil

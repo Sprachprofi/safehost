@@ -4,7 +4,7 @@ class PagesController < ApplicationController
 
   def e_404
     logger.warn "Error: Page Not Found: '#{request.fullpath}' (#{request.domain}). Route not found."
-    if params[:format] and ["gif", "png", "json", "text", "csv"].include?(params[:format].downcase)
+    if params[:format] and ["gif", "png", "json", "text", "csv", "xml", "php"].include?(params[:format].downcase)
       head 404
     else
       render 'error_404', status: 404, formats: :html

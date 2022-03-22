@@ -2,6 +2,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   prepend_around_action :switch_locale
 
+  rescue_from ActionController::RoutingError, ::AbstractController::ActionNotFound, ActiveRecord::RecordNotFound do |exception|
+    logger.warn "Not Found: '#{request.fullpath}'. #{exception.class} was raised: #{exception.message}"
+    render 'pages/e_404', status: 404
+  end
+
   def default_url_options
     { locale: I18n.locale }
   end
