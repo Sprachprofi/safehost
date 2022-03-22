@@ -47,6 +47,11 @@ width:100% !important;
     display: flex !important;
     font-size:14px !important;
   }
+
+
+  .table-responsive {
+    font-size: 10px;
+  }
 }
 
 body {
@@ -398,3 +403,22 @@ input.form-control {
   text-align: center;
   line-height: 2rem;
 }
+
+
+
+.accordion-body {
+  color: #414543;
+  font-family: "Roboto", sans-serif;
+  
+}
+
+
+.accordion-button {
+  color: black;
+  font-size: 1.1rem;
+  
+
+.accordion-button:active{
+  background-color: #24D6AB;
+}
+

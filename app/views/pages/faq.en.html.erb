@@ -1,100 +1,295 @@
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg {text-align:left;vertical-align:top}
-</style>
-<h1>1. General</h1>
-<ul>
-<li><h3>Why another housing site?</h3>
-    It is true that the whole housing topic is very confusing. In general, one should distinguish between sites that give data access to i) official authorities, ii) volunteers cooperating with official authorities, iii) volunteers, and iv) refugees directly. They also differ according to the level of ID verification and safety check that is done, and data protection standards adhered to. Have a look at the below table, in which safety is arguably the higher the further away from the lower-right corner:
-    <br>
-    <br>
-<table class="tg">
-<thead>
-  <tr>
-    <th></th>
-    <th>Human safety check / identification</th>
-    <th>Computerized safety check / automation</th>
-    <th>No safety check / identification</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>Data used by official authorities</td>
-    <td>Possibly unterkunft-ukraine.de</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Data used by volunteers cooperating with official authorities</td>
-    <td><span style="font-weight:700;font-style:normal;text-decoration:none">This site for Berlin LAF. </span><br><br><span style="font-weight:400;font-style:normal;text-decoration:none">Several circulating online forms, which have other drawbacks.</span></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Data used by volunteers</td>
-    <td><span style="font-weight:400;font-style:normal;text-decoration:none">A few local initiatives who step in as mediators between public offers and public requests.</span></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Data used directly by refugees</td>
-    <td></td>
-    <td><span style="font-weight:400;font-style:normal;text-decoration:none">E.g., helppeopleleaveukraine.org or </span>wunderflats.com</td>
-    <td>Almost all other platforms, apps, telegram channels.</td>
-  </tr>
-</tbody>
-</table>
-    <br>
-    Any official authority will require high safety standards when connecting  refugees with hosts. On the other hand, informal sites or media can often be very quick, but come with safety risks, which official authorities will never take. This site aims to fill a gap which was previously filled by online sheet forms, for which it is harder to verify who is behind them.
-	<br>
-    (If your site is listed incorrectly above, kindly let us know with suitable evidence.)</li>
-<li><h3>Why are there so many of them, anyways?</h3>
-Everyone wants to help, including IT people. But there was (and is) no central forum to connect those that operate or plan housing platforms with each other. If you operate or plan such a site and want to informally get in touch, please contact matthi@safehost.space . </li>
-<li><h3>Can you tell me about the housing site XYZ?</h3>
-Not more than what is stated above, sorry.
-</li>
-<h1>2. Data and security</h1>
-<li><h3>What happens to my data?</h3>
-At the technical level: your data is encrypted and stored on our secure server (hosting by Heroku on a Frankfurt-based server). We do not sell, share or otherwise give access to your data to any company and our site does not integrate services such as Google Analytics, Facebook Pixel, Doubleclick or similar.
-<br>
-At the logistical level, it will only be accessible by volunteers of the initiative https://www.accommodation-for-refugees.com/ , who will then do on-the-ground matching at LAF Berlin.</li>
-<li><h3>Who is behind this page?</h3>
-We are an initiative of ca. 12 people who found each other via social media, sparked by discussions about the housing matching problem.
-</li>
-<li><h3>How do we know the data is really used where you say it is?</h3>
-We are working on implementing backlinks from the official initiatives.
-</li>
-<li><h3>Is the data encrypted? What does it mean?</h3>
-Data flows are protected by SSL. Once the data rests on our server, it is encrypted with AES-256 block-level encryption. We make sure to scrape personal-identifiable data (such as email addresses) from our logs as well.
-</li>
-<li><h3>Is the code for your page open source?</h3>
-Yes, you can see it at https://github.com/Sprachprofi/safehost/ , released under CC BY-NC-SA 4.0.
-</li>
-<li><h3>Does the phone verification service also store my phone number? Or only your site?</h3>
-For billing and legal purposes, the phone verification service needs to store a list of phone numbers that it sent SMS to. However, it does not know anything about you, not even your name.
-</li>
-<li><h3>Where are your servers located? </h3>
-We are hosting with Heroku in Frankfurt.
-</li>
 
-<h1>3. Supporting guests</h1>
-Also see the TODO:Next steps page
-<li><h3>I received guests via your site, can you help me supporting them?</h3>
-We presented some main pointers on the site TODO:Next steps which was automatically shown after you registered your space. However, the situation changes very quickly, so we cannot do more than that or guarantee that it will be up to date when you need it, although we do our best to update. Also, maybe one Sozialamt or Behörde will decide slightly differently from another one.
-</li>
-<li><h3>I cannot host my guests any more, can you tell me where they can go?</h3>
-Yes, this is unfortunately a tricky topic. It would be most logical if they searched for and found accommodation in a part of Germany or Europe where there is still long-term housing available. However, there is currently no platform which fulfills security requirements at least as good as this site and works for such cases, which is a clear gap. While in principle, your guests could show up again on-site where data from this homepage is used, Berlin beds are also needed for new arrivals. Hence it would be great if you can monitor official advice for such cases and/or make sure they are searching via the most secure channels among those listed in Table 1 above.
-</li>
-<h1>4. Tech support and questions</h1>
-<li><h3>I have a technical problem, where can I turn to?</h3>
-Contact tech@safehost.space , thank you :)
-</li>
-<li><h3>I know Ruby on Rails or UX/design or can offer translation and want to contribute</h3>
-Always welcome! Contact tech@safehost.space , thank you :)
-</li>
+
+<h3 class="header-style mb-3">1. General</h3>
+
+
+
+<div class="accordion accordion-flush" id="accordionExample">
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        Why another housing site?
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        It is true that the whole housing topic is very confusing. In general, one should distinguish between sites that give data access to:
+    <ol type="i" class="">
+    <li>official authorities </li>
+    <li>volunteers cooperating with official authorities </li> 
+    <li>volunteers </li>
+    <li>refugees directly </li>
+    </ol>
+    <p class="">They also differ according to the level of ID verification and safety check that is done, and data protection standards adhered to. Have a look at the below table, in which safety is arguably the higher the further away from the lower-right corner:</p>
+      
+   
+   <div class="table-responsive">
+<table class="table table-secondary table-hover">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col" class="fst-italic fs-6">Human safety check<br> / identification</th>
+      <th scope="col" class="fst-italic fs-6">Computerized safety check<br> / automation </th>
+      <th scope="col" class="fst-italic fs-6">No safety check<br> / identification</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Data used by official authorities</th>
+      <td>Possibly unterkunft-ukraine.de</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Data used by volunteers cooperating with official authorities</th>
+      <td><strong>This site for Berlin LAF.</strong><br>
+      Several circulating online forms, which have other drawbacks.</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Data used by volunteers</th>
+      <td>A few local initiatives who step in as mediators between public offers and public requests.</td>
+      <td></td>
+      <td></td>
+    </tr>
+<tr>
+      <th scope="row">Data used directly by refugees</th>
+      <td></td>
+      <td>E.g., helppeopleleaveukraine.org or wunderflats.com</td>
+      <td>Almost all other platforms, apps, telegram channels.</td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
+
+ <p class="mt-3">Any official authority will require high safety standards when connecting  refugees with hosts. On the other hand, informal sites or media can often be very quick, but come with safety risks, which official authorities will never take. This site aims to fill a gap which was previously filled by online sheet forms, for which it is harder to verify who is behind them.
+<br>
+(If your site is listed incorrectly above, kindly let us know with suitable evidence.)</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Why are there so many of them, anyways?
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Everyone wants to help, including IT people. But there was (and is) no central forum to connect those that operate or plan housing platforms with each other. If you operate or plan such a site and want to informally get in touch, please contact <a href="mailto:matthi@safehost.space" class="text-muted"> matthi@safehost.space </a>.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Can you tell me about the housing site XYZ?
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Not more than what is stated above, sorry.
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<h3 class="header-style mb-3 mt-3" >2. Data and security</h3>
+
+
+
+<div class="accordion accordion-flush" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+       What happens to my data?
+      </button>
+    </h2>
+    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+At the technical level: your data is encrypted and stored on our secure server (hosting by Heroku on a Frankfurt-based server). We do not sell, share or otherwise give access to your data to any company and our site does not integrate services such as Google Analytics, Facebook Pixel, Doubleclick or similar.
+At the logistical level, it will only be accessible by volunteers of the initiative <a href="https://www.accommodation-for-refugees.com/" class="text-muted">https://www.accommodation-for-refugees.com/</a> , who will then do on-the-ground matching at LAF Berlin.
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFourteen" aria-expanded="false" aria-controls="collapseFourteen">
+        Who is behind this page?
+      </button>
+    </h2>
+    <div id="collapseFourteen" class="accordion-collapse collapse" aria-labelledby="headingFourteen" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        We are an initiative of ca. 12 people who found each other via social media, sparked by discussions about the housing matching problem.
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+        How do we know the data is really used where you say it is?
+      </button>
+    </h2>
+    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        We are working on implementing backlinks from the official initiatives.
+      </div>
+    </div>
+  </div>
+
+
+
+ <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+        Is the data encrypted? What does it mean?
+      </button>
+    </h2>
+    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Data flows are protected by SSL. Once the data rests on our server, it is encrypted with AES-256 block-level encryption. We make sure to scrape personal-identifiable data (such as email addresses) from our logs as well.
+      </div>
+    </div>
+  </div>
+
+
+ <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+       Is the code for your page open source?
+      </button>
+    </h2>
+    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Yes, you can see it at <a href="https://github.com/Sprachprofi/safehost" class="text-muted"> https://github.com/Sprachprofi/safehost/</a>, released under CC BY-NC-SA 4.0.
+      </div>
+    </div>
+  </div>
+
+
+
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+       Does the phone verification service also store my phone number? Or only your site?
+      </button>
+    </h2>
+    <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        For billing and legal purposes, the phone verification service needs to store a list of phone numbers that it sent SMS to. However, it does not know anything about you, not even your name.
+      </div>
+    </div>
+  </div>
+
+
+
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+      Where are your servers located?
+      </button>
+    </h2>
+    <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+     We are hosting with Heroku in Frankfurt, Germany.
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+<h3 class="header-style mb-3 mt-3" >3. Supporting guests </h3>
+
+<p>Also check the <a href="https://safehost.space/en/pages/next_steps" class="text-muted">Next steps page</a></p>
+
+<div class="accordion accordion-flush" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="true" aria-controls="collapseTen">
+       I received guests via your site, can you help me supporting them?
+      </button>
+    </h2>
+    <div id="collapseTen" class="accordion-collapse collapse" aria-labelledby="headingTen" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+ We presented some main pointers on the site TODO:Next steps which was automatically shown after you registered your space. However, the situation changes very quickly, so we cannot do more than that or guarantee that it will be up to date when you need it, although we do our best to update. Also, maybe one Sozialamt or Behörde will decide slightly differently from another one.
+      </div>
+    </div>
+  </div>
+
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+        I cannot host my guests any more, can you tell me where they can go?
+      </button>
+    </h2>
+    <div id="collapseEleven" class="accordion-collapse collapse" aria-labelledby="headingEleven" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Yes, this is unfortunately a tricky topic. It would be most logical if they searched for and found accommodation in a part of Germany or Europe where there is still long-term housing available. However, there is currently no platform which fulfills security requirements at least as good as this site and works for such cases, which is a clear gap. While in principle, your guests could show up again on-site where data from this homepage is used, Berlin beds are also needed for new arrivals. Hence it would be great if you can monitor official advice for such cases and/or make sure they are searching via the most secure channels among those listed in Table 1 above.
+      </div>
+    </div>
+  </div>
+  </div>
+
+  
+
+
+<h3 class="header-style mb-3 mt-3" >4. Tech support and questions </h3>
+
+
+
+ <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+       I have a technical problem, where can I turn to?
+      </button>
+    </h2>
+    <div id="collapseTwelve" class="accordion-collapse collapse" aria-labelledby="headingTwelve" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+  Contact <a href="mailto:tech@safehost.space" class="text-muted">tech@safehost.space </a>, thank you :)
+    </div>
+  </div>
+  </div>
+
+
+
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">
+        I know Ruby on Rails or UX/design or can offer translation and want to contribute
+      </button>
+    </h2>
+    <div id="collapseThirteen" class="accordion-collapse collapse" aria-labelledby="headingThirteen" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+   Always welcome! Contact <a href="mailto:tech@safehost.space" class="text-muted">tech@safehost.space </a> , thank you :)</div>
+    </div>
+  </div>
+  </div>
+
+
+
+
+
+
+
+</div>
+
 
 
