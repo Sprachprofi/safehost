@@ -416,9 +416,17 @@ input.form-control {
 .accordion-button {
   color: black;
   font-size: 1.1rem;
-  
+}
 
-.accordion-button:active{
+.accordion-button:active {
   background-color: #24D6AB;
 }
+
+
+
+.next-steps-table-header {
+  font-size: 1.1rem;
+  background-color: #f0c419;
+}
+
 
