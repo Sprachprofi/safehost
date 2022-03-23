@@ -429,4 +429,8 @@ input.form-control {
   background-color: #f0c419;
 }
 
+label.required::after{
+  content: ' *';
+  color:red;
+}
 
