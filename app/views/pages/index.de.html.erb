@@ -50,14 +50,12 @@
 <div class="d-flex justify-content-center mt-5 mb-5">
   <span class="social-name fs-3 text-center"> Bitte teile diese Webseite mit jemandem, der helfen kann!</span>
 </div>
-<div href="https://safehost.space/" id="copy-link" class="share-link">
-  <div class="d-flex justify-content-center mt-5 mb-2">
-    <%= image_tag "share.svg" %>
-  </div>
-  <div class="d-flex justify-content-center mb-5">
-    <div class="share">Link teilen
-      <span class="link-copied d-none " id="alertArea">Link wurde kopiert</span>
+<div class="d-flex justify-content-center">
+  <div href="https://safehost.space/" id="copy-link" class="share-link d-flex flex-column align-items-center">
+    <%= image_tag "share.svg", class: "mb-2" %>
+    <div class="share" id="alertArea">
+      Link teilen
     </div>
+    <div class="link-copied d-none" id="alertText">Link wurde kopiert</div>
   </div>
-</a>
 </div>
