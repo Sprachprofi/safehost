@@ -171,7 +171,7 @@ body {
 .bg-back {
   width:75%;
     }
-  
+
 
 .more-info {
   color: black;
@@ -195,10 +195,16 @@ body {
 .share-link {
   color: #f0c419;
   text-decoration: none;
+
+}
+
+.share-link img {
+  z-index: -1;
 }
 
 .share-link:hover {
   color: #6b6868;
+  cursor: pointer;
 }
 
 .offers-available {
@@ -409,14 +415,14 @@ input.form-control {
 .accordion-body {
   color: #414543;
   font-family: "Roboto", sans-serif;
-  
+
 }
 
 
 .accordion-button {
   color: black;
   font-size: 1.1rem;
-}  
+}
 
 .accordion-button:active {
   background-color: #24D6AB;
