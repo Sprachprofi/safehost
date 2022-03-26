@@ -1,5 +1,4 @@
 <%= form_for @host, :html => { class: "form-horizontal host" } do |f| %>
-
   <% if @host.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
       <div class="panel-heading">
@@ -7,134 +6,174 @@
       </div>
       <div class="panel-body">
         <ul>
-        <% @host.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
+          <% @host.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
         </ul>
       </div>
     </div>
   <% end %>
-
-
-    <h3><%= t("host.basic_data") %></h3>
-    <%= fields_for :user, @host.user do |uf| %>
-    <div class="mb-3 row">
-      <%= uf.label :personal_name, class: "control-label col-lg-3" %>
+  <h3 class="header-style mt-5 mb-3"><%= t("host.basic_data") %></h3>
+  <%= fields_for :user, @host.user do |uf| %>
+    <div class="mb-3  row">
+      <%= uf.label :personal_name, class: "control-label col-lg-3 required" %>
       <div class="col-lg-9">
         <%= uf.text_field :personal_name, autofocus: true, class: "form-control", required: true %>
       </div>
-      
     </div>
-    
     <div class="mb-3 row">
-      <%= uf.label :family_name, class: "control-label col-lg-3" %>
+      <%= uf.label :family_name, class: "control-label col-lg-3 required" %>
       <div class="col-lg-9">
         <%= uf.text_field :family_name, class: "form-control", required: true %>
       </div>
-      
     </div>
-    
     <div class="mb-3 row">
-      <%= uf.label :email, class: "control-label col-lg-3" %>
+      <%= uf.label :email, class: "control-label col-lg-3 required" %>
       <div class="col-lg-9">
-        <%= uf.email_field :email, autocomplete: "email", class: "form-control", required: true %>
+        <%= uf.email_field :email, autocomplete: "email", class: "form-control",  placeholder: "sample@domain.com", required: true %>
       </div>
-      
     </div>
-    
     <div class="mb-3 row">
-      <%= uf.label :mobile, class: "control-label col-lg-3" %>
+      <%= uf.label :mobile, class: "control-label col-lg-3 required" %>
       <div class="col-lg-9">
         <%= uf.text_field :mobile, class: "form-control", placeholder: "+49 151 12345678", required: true %>
       </div>
-      
     </div>
-    
-    <div class="mb-3 row">
-      <%= uf.label :contact_time, class: "control-label col-lg-3" %>
-      <div class="col-lg-9">
-        <%= uf.text_field :contact_time, class: "form-control" %>
+    <div class="row mb-3">
+      <div class="col-lg-3">
+        <label for="time_selection" class="required">What time of day may we call you?</label>
       </div>
-      
+      <div class="col-lg-3">
+        <select class="form-select" id="time_selection" required>
+          <option selected disabled value="">Choose option</option>
+          <option>08/00-20/00 Monday-Sunday</option>
+          <option>08/00-22/00 Monday-Sunday</option>
+          <option>08/00-24/00 Monday-Sunday</option>
+          <option>12/00-22/00 Monday-Sunday</option>
+          <option>12/00-24/00 Monday-Sunday</option>
+          <option>Anytime</option>
+          <option>Weekdays only</option>
+        </select>
+      </div>
     </div>
-    
-    <div class="mb-3 row">
-      <%= uf.label :id_or_passport_no, class: "control-label col-lg-3" %>
-      <div class="col-lg-9">
+    <div class="row mb-3">
+      <div class="col-lg-3">
+        <label for="id_or_passport_country" class="required">ID or passport number</label>
+      </div>
+      <div class="col-lg-2 mb-3">
+        <select class="form-select" id="id_or_passport_country" required>
+          <option selected disabled value="">Choose country</option>
+          <option>Germany</option>
+          <option>Austria</option>
+          <option>France</option>
+          <option>Slovenia</option>
+          <option>Slovakia</option>
+          <option>Ukraine</option>
+          <option>Russia</option>
+        </select>
+      </div>
+      <div class="col-lg-5 mb-3">
         <%= uf.text_field :id_or_passport_no, class: "form-control" %>
         <span id="helpBlock" class="help-block"><%= t("host.id_safety") %></span>
       </div>
     </div>
-    
     <div class="mb-3 row">
       <%= uf.label :social_links, class: "control-label col-lg-12" %>
-      <div class="col-lg-12">
+      <div class="col-lg-10">
         <%= uf.text_area :social_links, value: @host.user.social_links.join("\r\n"), class: "form-control" %>
       </div>
     </div>
-    
-    <% end %>
-    <hr />
-
-  
-  <h3><%= t("host.where") %></h3>
+  <% end %>
+  <hr class="mb-5 mt-5"; style="color: #f0c419; height:5px;" />
+  <h3 class="header-style mb-3"><%= t("host.where") %></h3>
   <% @host.country ||= "DE" %>
   <div class="mb-3 row">
-    <%= f.label :country, class: "control-label col-lg-3" %>
+    <%= f.label :country, class: "control-label col-lg-3 required" %>
     <div class="col-lg-9">
-      <%= f.country_select :country, { include_blank: true }, { class: "form-control" } %>     
+      <%= f.country_select :country, { include_blank: true }, { class: "form-control" } %>
     </div>
-    
   </div>
   <div class="mb-3 row">
-    <%= f.label :postal_code, class: "control-label col-lg-3" %>
+    <%= f.label :postal_code, class: "control-label col-lg-3 required" %>
     <div class="col-lg-9">
       <%= f.text_field :postal_code, class: "form-control" %>
     </div>
-    
   </div>
   <% @host.city ||= "Berlin" %>
   <div class="mb-3 row">
-    <%= f.label :city, class: "control-label col-lg-3" %>
+    <%= f.label :city, class: "control-label col-lg-3 required" %>
     <div class="col-lg-9">
       <%= f.text_field :city, class: "form-control" %>
     </div>
-    
   </div>
   <div class="mb-3 row">
-    <%= f.label :address, class: "control-label col-lg-3" %>
+    <%= f.label :address, class: "control-label col-lg-3 required" %>
     <div class="col-lg-9">
       <%= f.text_field :address, class: "form-control" %>
     </div>
-    
   </div>
-  
-  <hr />
-  
-  <h3><%= t("host.details") %></h3>
+  <hr class="mb-5 mt-5"; style="color: #f0c419; height:5px;" />
+  <h3 class="header-style mb-3"><%= t("host.details") %></h3>
   <div class="mb-3 row">
-    <%= f.label :optimal_no_guests, class: "control-label col-lg-3" %>
-    <div class="col-lg-9">
-      <%= f.select :optimal_no_guests, (1..5).to_a + ["more"], {}, class: "form-control" %>
+    <div class="col-lg-3">
+      <%= f.label :optimal_no_guests, class: "control-label required" %>
     </div>
-    
-  </div>
-  <div class="mb-3 row">
-    <%= f.label :max_sleeps, class: "control-label col-lg-3" %>
     <div class="col-lg-9">
-      <%= f.select :max_sleeps, (1..6).to_a + ["more"], {}, class: "form-control" %>
+      <select class="form-select form-control" id="host_optimal_no_guests" required>
+        <option selected disabled value="">Select</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>10+</option>
+      </select>
     </div>
-    
   </div>
   <div class="mb-3 row">
-    <%= f.label :max_duration, class: "control-label col-lg-3" %>
+    <div class="col-lg-3">
+      <%= f.label :max_sleeps, class: "control-label required" %>
+    </div>
     <div class="col-lg-9">
-      <%= f.text_field :max_duration, class: "form-control", required: true %>
+      <select class="form-select form-control max_sleeps" id="host_max_sleeps" required>
+        <option selected disabled value="">Select</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>10+</option>
+      </select>
     </div>
-    
   </div>
   <div class="mb-3 row">
-    <%= f.label :sleep_conditions, class: "control-label col-lg-3" %>
+    <div class="col-lg-3">
+      <%= f.label :max_duration, class: "control-label required" %>
+    </div>
+    <div class="col-lg-9">
+      <select class="form-select form-control max_duration" id="host_max_duration" required>
+        <option selected disabled value="">Select</option>
+        <option>1-3 nights</option>
+        <option>4-6 nights</option>
+        <option>1 week</option>
+        <option>8-10 nights</option>
+        <option>2 weeks</option>
+        <option>3 weeks</option>
+        <option>1 month</option>
+        <option>1-3 month</option>
+      </select>
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <%= f.label :sleep_conditions, class: "control-label col-lg-3 required" %>
     <div class="col-lg-9">
       <% SLEEP_CONDITIONS.each do |opt| %>
         <label class="form-check-inline">
@@ -142,10 +181,9 @@
         </label>
       <% end %>
     </div>
-    
   </div>
   <div class="mb-3 row">
-    <%= f.label :which_guests, class: "control-label col-lg-3" %>
+    <%= f.label :which_guests, class: "control-label col-lg-3 required" %>
     <div class="col-lg-9">
       <% GUEST_TYPES.each do |opt| %>
         <label class="form-check-inline">
@@ -154,10 +192,9 @@
         <%= raw("<br>") if opt == "BIPOC" %>
       <% end %>
     </div>
-    
   </div>
   <div class="mb-3 row">
-    <%= f.label :which_hosts, class: "control-label col-lg-3" %>
+    <%= f.label :which_hosts, class: "control-label col-lg-3 required" %>
     <div class="col-lg-9">
       <% HOST_TYPES.each do |opt| %>
         <label class="form-check-inline">
@@ -166,49 +203,42 @@
         <%= raw("<br>") if opt == "youths" %>
       <% end %>
     </div>
-    
   </div>
   <div class="mb-3 row">
-    <%= f.label :languages, class: "control-label col-lg-3" %>
+    <%= f.label :languages, class: "control-label col-lg-3 required" %>
     <div class="col-lg-9">
-      <% ["Deutsch", "English", "русский", "украї́нська", "Français", "Español", "Polski", "Misc Slavic", "Other"].each do |opt| %>
+      <% ["Deutsch", "English", "Русский", "Украї́нська", "Français", "Español", "Polski", "Misc Slavic", "Other"].each do |opt| %>
         <label class="form-check-inline">
           <%= check_box_tag ("chk_languages_" + opt).to_sym,  "1",  (@host.languages || "").include?(opt) %> <%= opt %>
         </label>
       <% end %>
       <br />
-        <label class="form-check-inline">
-          <%= check_box_tag ("chk_languages_no_common").to_sym,  "1",  (@host.languages || "").include?("no_common") %> <%= t("host.no_common_language") %>
-        </label>
+      <label class="form-check-inline ">
+        <%= check_box_tag ("chk_languages_no_common").to_sym,  "1",  (@host.languages || "").include?("no_common") %> <%= t("host.no_common_language") %>
+      </label>
     </div>
-    
   </div>
   <div class="mb-3 row">
-    <%= f.label :description, class: "control-label col-lg-3" %>
+    <%= f.label :description, class: "control-label col-lg-3"%>
     <div class="col-lg-9">
-      <%= f.text_area :description, class: "form-control" %>
+      <%= f.text_area :description, placeholder: "e.g.: size, room division, proximity to necessities; non-smoking place", class: "form-control" %>
     </div>
-    
   </div>
   <div class="mb-3 row">
     <%= f.label :other_comments, class: "control-label col-lg-3" %>
     <div class="col-lg-9">
-      <%= f.text_area :other_comments, class: "form-control" %>
+      <%= f.text_area :other_comments, placeholder: "e.g.: interests you might share; are you a student/working somewhere", class: "form-control" %>
     </div>
-    
   </div>
-  
   <div class="mb-3 row">
     <div class=" col-xs-9 col-md-9">
       <%= f.check_box :terms_of_service %> <span><%= string_with_link(t("host.privacy_agree"), data_privacy_pages_path) %></span>
     </div>
   </div>
-
   <div class="mb-3 row">
     <div class="col-lg-offset-3 col-lg-8">
       <%= f.submit t("buttons.submit"), class: "btn btn-primary" %>
-      
     </div>
   </div>
-
+  
 <% end %>

@@ -40,9 +40,9 @@ ALL_LANGUAGE_CODES = LANGUAGE_NAME.keys.map(&:to_s)
 
 LANGUAGE_CODE = LANGUAGE_NAME.invert # works as a lookup method: LANGUAGE_CODE["Deutsch"] => "de"
 
-SLEEP_CONDITIONS = ["common_room", "private_room", "private_bathroom", "use_kitchen", "work_desk"]
-HOST_TYPES = ["single_m", "single_w", "couple", "xmen", "women", "babies", "infants", "youths", "elderly", "dogs", "cats", "other_pets"]
-GUEST_TYPES = ["xmen", "women", "couple", "babies", "infants", "youths", "elderly", "BIPOC", "dogs", "cats", "other_pets"]
+SLEEP_CONDITIONS = ["common_room", "private_room", "private_bathroom", "use_kitchen", "work_desk","free_parking","washing_machine"]
+HOST_TYPES = ["one_man", "one_woman", "couple", "xmen", "women", "babies", "infants", "youths", "elderly", "dogs", "cats", "other_pets"]
+GUEST_TYPES = ["xmen", "women", "couple", "babies", "infants", "youths", "elderly", "disabled", "People of Color", "dogs", "cats", "other_pets"]
 
 has_database = begin
   ActiveRecord::Base.connection
